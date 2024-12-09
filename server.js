@@ -6,13 +6,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const cors = require('cors');
 app.use(cors());
-const TaskRouterPath=require(path.join(__dirname, "App", "Router", "tasks.js"))
-const ProjectRouterPath=require(path.join(__dirname, "App", "Router", "projects.js"))
+const TaskRouterPath=require(path.join(__dirname, "App", "Router", "tasks.route.js"))
+const ProjectRouterPath=require(path.join(__dirname, "App", "Router", "projects.route.js"))
 app.use('/todoList',ProjectRouterPath);
 app.use('/todoList/task',TaskRouterPath);
 app.use('/todoList/project',ProjectRouterPath);
 
-// require(path.join(__dirname, "app", "Router", "router.js"))(app);
 
 
 app.listen(PORT,()=>console.log(`server is running on port ${PORT}`));
