@@ -52,7 +52,7 @@ exports.updateById = (Data, result) => {
       result({ kind: "not_found" }, null);
       return;
     }
-    result(null, `Project with ID ${Data.project_id} updated successfully!`);
+    result(null, `Project with ID ${this.changes} updated successfully!`);
   });
 };
 exports.getById = (Id, result) => {

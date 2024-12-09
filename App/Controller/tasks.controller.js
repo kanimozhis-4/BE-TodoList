@@ -32,7 +32,8 @@ exports.updateById = (req, res) => {
     description: req.body.description,
     due_date: req.body.due_date,
     is_completed: req.body.is_completed,
-    id: req.params.id,
+    project_id: req.body.project_id,
+    id:req.params.id
   };
   modelPath.updateById(Data, (err, data) => {
     if (err) {
@@ -96,7 +97,7 @@ exports.deleteById = (req, res) => {
   });
 };
 exports.deleteAllData = (req, res) => {
-  modelPath.deleteAllData(Id, (err, data) => {
+  modelPath.deleteAllData((err, data) => {
     if (err)
       res.status(500).send({
         message:`error in deleteAllData : ${err}`,

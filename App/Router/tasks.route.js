@@ -8,7 +8,7 @@ router.put("/:id", controller.updateById);
  // get one data by id 
 router.get("/:id", controller.getById); 
 // delte by id 
-router.delete("/:id", controller.deleteById);
+router.delete("/delete/:id", controller.deleteById);
 // delete all Data
 router.delete("/", controller.deleteAllData);
 module.exports=router;

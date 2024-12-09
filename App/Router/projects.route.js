@@ -11,7 +11,7 @@ router.get("/:id", controller.getById);
 // update one data using id
 router.put("/:id", controller.updateById);
 // delete by id 
-router.delete("/:id", controller.deleteById);
+router.delete("/delete/:id", controller.deleteById);
 // delete all Data
 router.delete("/", controller.deleteAllData);
   
