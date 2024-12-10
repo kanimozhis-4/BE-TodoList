@@ -1,9 +1,12 @@
 const path = require("path");
 const modelPath = require(path.join(__dirname, "..", "Model", "tasks.model.js"));
 exports.createTask = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: "Content can not be empty!",
+  const requiredKeys = ["content", "description", "due_date", "project_id"];
+  const missingKeys = validatePayload(req.body, requiredKeys);
+
+  if (missingKeys) {
+    return res.status(400).send({
+      message: `Missing required keys: ${missingKeys.join(", ")}`,
     });
   }
   const Data = {
@@ -15,23 +18,26 @@ exports.createTask = (req, res) => {
   };
   modelPath.createTask(Data, (err, data) => {
     if (err)
-      res.status(400).send({
+      res.status(500).send({
         message:`error in createTask :${err}`,
       });
     res.send(data);
   });
 };
 exports.updateById = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: "Payload can not be empty!",
+  const requiredKeys = ["content", "description", "due_date", "project_id"];
+  const missingKeys = validatePayload(req.body, requiredKeys);
+
+  if (missingKeys) {
+    return res.status(400).send({
+      message: `Missing required keys: ${missingKeys.join(", ")}`,
     });
   }
   const Data = {
     content: req.body.content,
     description: req.body.description,
     due_date: req.body.due_date,
-    is_completed: req.body.is_completed,
+    is_completed: req.body.is_completed || false,
     project_id: req.body.project_id,
     id:req.params.id
   };
@@ -42,7 +48,7 @@ exports.updateById = (req, res) => {
           message: `Not found id: ${req.params.id}.`,
         });
       } else {
-        res.status(400).send({
+        res.status(500).send({
           message: `error in updateById : ${err}`,
         });
       }
@@ -65,7 +71,7 @@ exports.getById = (req, res) => {
           message: `Not found id: ${Id}.`,
         });
       } else {
-        return res.status(400).send({
+        return res.status(500).send({
           message: `Error in getById :${err}`,
         });
       }
@@ -104,4 +110,9 @@ exports.deleteAllData = (req, res) => {
       });
     else res.send(data);
   });
+};
+const validatePayload = (payload, requiredKeys) => {
+  const payloadKeys = new Set(Object.keys(payload));
+  const missingKeys = requiredKeys.filter(key => !payloadKeys.has(key));
+  return missingKeys.length > 0 ? missingKeys : null;
 };

@@ -25,7 +25,8 @@ exports.getAllData = (result) => {
         t.is_completed, 
         t.created_at 
     FROM projects p
-    LEFT JOIN tasks t ON p.project_id = t.project_id`;
+    LEFT JOIN tasks t ON p.project_id = t.project_id`; 
+  // const query=`select * from projects,tasks`
 
   db.all(query, [], (err, data) => {
     if (err) {

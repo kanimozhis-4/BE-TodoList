@@ -1,9 +1,12 @@
 const path = require("path");
 const modelPath = require(path.join(__dirname, "..", "Model", "projects.model.js"));
 exports.createProject = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: "payload can not be empty!",
+  const requiredKeys = ["name", "color"];
+  const missingKeys = validatePayload(req.body, requiredKeys);
+
+  if (missingKeys) {
+    return res.status(400).send({
+      message: `Missing required keys: ${missingKeys.join(", ")}`,
     });
   }
   const Data = {
@@ -13,7 +16,7 @@ exports.createProject = (req, res) => {
   };
   modelPath.createProject(Data, (err, data) => {
     if (err)
-      res.status(400).send({
+      res.status(500).send({
         message:`error in createProject : ${err}`,
       });
     else res.send(data);
@@ -22,22 +25,25 @@ exports.createProject = (req, res) => {
 exports.getAllData = (req, res) => {
   modelPath.getAllData((err, data) => {
     if (err)
-      res.status(400).send({
+      res.status(500).send({
         message:`error in getAllData : ${err}`,
       });
     else res.send(data);
   });
 };
 exports.updateById = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: "Payload can not be empty!",
+  const requiredKeys = ["name", "color"];
+  const missingKeys = validatePayload(req.body, requiredKeys);
+
+  if (missingKeys) {
+    return res.status(400).send({
+      message: `Missing required keys: ${missingKeys.join(", ")}`,
     });
   }
   const Data = {
     name: req.body.name,
     color: req.body.color,
-    is_favorite: req.body.is_favorite,
+    is_favorite: req.body.is_favorite || false,
     id: req.params.id,
   };
 
@@ -48,7 +54,7 @@ exports.updateById = (req, res) => {
           message: `Not found id : ${req.params.id}.`,
         });
       } else {
-        res.status(400).send({
+        res.status(500).send({
           message: `Error in updateById as ${err}`,
         });
       }
@@ -71,7 +77,7 @@ exports.getById = (req, res) => {
         });
       } else {
         return res.status(500).send({
-          message: `Error in getById : ${Id}.`,
+          message: `Error retrieving ID ${Id}: ${err}`,
         });
       }
     }
@@ -92,7 +98,7 @@ exports.deleteById = (req, res) => {
             message: `Not found id : ${req.params.id}.`,
         });
       } else {
-        return res.status(400).send({
+        return res.status(500).send({
           message: `Error in deleteById: ${err}.`,
         });
       }
@@ -102,11 +108,17 @@ exports.deleteById = (req, res) => {
 };
 exports.deleteAllData = (req, res) => {
   modelPath.deleteAllData((err, data) => {
-    if (err)
-      res.status(400).send({
+    if (err){
+      res.status(500).send({
         message:`error in deleteAllData : ${err}`,
-      });
+      }); 
+    }
     res.send(data);
    
   });
+};
+const validatePayload = (payload, requiredKeys) => {
+  const payloadKeys = new Set(Object.keys(payload));
+  const missingKeys = requiredKeys.filter(key => !payloadKeys.has(key));
+  return missingKeys.length > 0 ? missingKeys : null;
 };
