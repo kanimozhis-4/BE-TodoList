@@ -1,7 +1,7 @@
 const express=require('express');
 const router = express.Router();
 const path=require('path')
-const controller = require(path.join(__dirname,'..','Controller','projects.controller.js'));
+const controller = require(path.join(__dirname,'..','controllers','projects.controller.js'));
 // create project
 router.post('/',controller.createProject); 
 // get all data from both table

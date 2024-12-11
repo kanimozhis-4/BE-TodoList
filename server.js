@@ -7,8 +7,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const cors = require('cors');
 app.use(cors());
-const TaskRouterPath=require(path.join(__dirname, "App", "Router", "tasks.route.js"))
-const ProjectRouterPath=require(path.join(__dirname, "App", "Router", "projects.route.js"))
+const TaskRouterPath=require(path.join(__dirname, "app", "routes", "tasks.routes.js"))
+const ProjectRouterPath=require(path.join(__dirname, "app", "routes", "projects.routes.js"))
 app.use('/todoList',ProjectRouterPath);
 app.use('/todoList/task',TaskRouterPath);
 app.use('/todoList/project',ProjectRouterPath);
