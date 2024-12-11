@@ -17,10 +17,11 @@ const db = new sqlite3.Database('./connect.db', (err) => {
 // Function to create the 'projects' and 'tasks' tables
 const createTables = () => {
   const userQuery=`CREATE TABLE IF NOT EXISTS Users (
-    user_id SERIAL PRIMARY KEY,
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE
   );` 
+  
     const projectQuery = `
      CREATE TABLE IF NOT EXISTS projects (
         project_id INTEGER PRIMARY KEY AUTOINCREMENT,

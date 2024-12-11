@@ -3,6 +3,7 @@ const db = require(path.join(__dirname, "..", "config", "db.config.js"));
 exports.runQuery = (query, values) => {
   return new Promise((resolve, reject) => {
     db.run(query, values, function (err) {
+      console.log(query,values,this)
       if (err) {
         return reject({
           message: `Error during execution: ${err}`,
@@ -35,7 +36,6 @@ exports.getQuery = (query, params) => {
   return new Promise((resolve, reject) => {
     db.get(query, params, function (err, data) {
       if (err) {
-        console.log(data, "datta");
         return reject({
           message: `Error executing query: ${err}`,
           statusCode: 500,

@@ -6,7 +6,7 @@ router.post('/',controller.createTask);
   // update one data using id
 router.put("/:id", controller.updateById);
 // filter by data 
-router.get('/data', controller.filterByData);
+router.get('/filter', controller.filterByData);
  // get one data by id  
 router.get("/:id", controller.getById); 
 // delte by id 

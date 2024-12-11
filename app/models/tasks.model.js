@@ -2,8 +2,8 @@ const path = require("path");
 const db = require(path.join(__dirname, "..", "models", "db.js"));
 
 exports.createTask = (Data) => {
-  const query = `INSERT INTO tasks (content, description, due_date, is_completed, project_id) 
-                 VALUES (?, ?, ?, ?, ?)`;
+  const query = `INSERT INTO tasks (content, description, due_date, is_completed, user_id,project_id) 
+                 VALUES (?, ?, ?, ?, ?,?)`;
   const values = Object.values(Data);
 
   return db.runQuery(query, values);
@@ -17,7 +17,8 @@ exports.updateById = (Data) => {
           description = ?, 
           due_date = ?, 
           is_completed = ?, 
-          project_id = ? 
+          project_id = ? ,
+          user_id=?
       WHERE id = ?;
     `;
   const values = Object.values(Data);

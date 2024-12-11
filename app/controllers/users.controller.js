@@ -1,14 +1,9 @@
 const path = require("path");
-const modelPath = require(path.join(
-  __dirname,
-  "..",
-  "models",
-  "tasks.model.js"
-));
+const modelPath = require(path.join(__dirname, "..", "models", "users.model.js"));
 
-// Create a new task
-exports.createTask = (req, res) => {
-  const requiredKeys = ["content", "description", "due_date", "project_id","user_id"];
+// Create a new user
+exports.createUser = (req, res) => {
+  const requiredKeys = ["name", "email"];
   const missingKeys = validatePayload(req.body, requiredKeys);
 
   if (missingKeys) {
@@ -18,29 +13,25 @@ exports.createTask = (req, res) => {
   }
 
   const Data = {
-    content: req.body.content,
-    description: req.body.description,
-    due_date: req.body.due_date,
-    is_completed: req.body.is_completed || false,
-    user_id:req.body.user_id,
-    project_id: req.body.project_id,
+    name: req.body.name,
+    email: req.body.email,
   };
 
   modelPath
-    .createTask(Data)
+    .createUser(Data)
     .then((data) => {
       res.status(201).send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: `Error in createTask: ${err.message || err}`,
+        message: `Error in createUser: ${err.message || err}`,
       });
     });
 };
 
-// Update a task by ID
+// Update a user by ID
 exports.updateById = (req, res) => {
-  const requiredKeys = ["content", "description", "due_date", "project_id","user_id"];
+  const requiredKeys = ["name", "email"];
   const missingKeys = validatePayload(req.body, requiredKeys);
 
   if (missingKeys) {
@@ -50,31 +41,27 @@ exports.updateById = (req, res) => {
   }
 
   const Data = {
-    content: req.body.content,
-    description: req.body.description,
-    due_date: req.body.due_date,
-    is_completed: req.body.is_completed || false,
-    project_id: req.body.project_id,
-    user_id:req.body.user_id,
-    id: req.params.id,
+    name: req.body.name,
+    email: req.body.email,
+    user_id: req.params.id,
   };
 
   modelPath
     .updateById(Data)
     .then(() => {
-      res.send({ message: `updated successfully in the Id: ${Data.id}` });
+      res.send({ message: `Updated successfully for ID: ${Data.user_id}` });
     })
     .catch((err) => {
-      res.status(err.statusCode).send(err);
+      res.status(err.statusCode || 500).send(err);
     });
 };
 
-// Get a task by ID
+// Get a user by ID
 exports.getById = (req, res) => {
-  const Id = req.params.id;
+  const Id = parseInt(req.params.id);
   if (!Id) {
     return res.status(400).send({
-      message: "ID is required!",
+      message: "User ID is required!",
     });
   }
 
@@ -84,47 +71,44 @@ exports.getById = (req, res) => {
       res.send(data);
     })
     .catch((err) => {
-      res.status(err.statusCode).send(err);
+      res.status(err.statusCode || 500).send(err);
     });
 };
 
-// Delete a task by ID
+// Delete a user by ID
 exports.deleteById = (req, res) => {
   const Id = req.params.id;
   if (!Id) {
     return res.status(400).send({
-      message: "ID is required!",
+      message: "User ID is required!",
     });
   }
 
   modelPath
     .deleteById(Id)
     .then(() => {
-      res.send({ message: `deleted the successfully with ID :${Id}` });
+      res.send({ message: `Deleted successfully with ID: ${Id}` });
     })
     .catch((err) => {
-      res.status(err.statusCode).send(err);
+      res.status(err.statusCode || 500).send(err);
     });
 };
 
-// Delete all tasks
+// Delete all users
 exports.deleteAllData = (req, res) => {
   modelPath
     .deleteAllData()
-    .then((data) => {
-      res.send({ message: "All tasks deleted successfully!" });
+    .then(() => {
+      res.send({ message: "All users deleted successfully!" });
     })
     .catch((err) => {
-      if (err.statusCode === 404) {
-        res.send({ message: "All tasks deleted successfully!" });
-      }
       res.status(500).send({
         message: `Error in deleteAllData: ${err.message || err}`,
       });
     });
 };
 
-// Filter tasks based on query parameters
+// Filter users based on query parameters
 exports.filterByData = (req, res) => {
   const queryParam = req.query;
   if (Object.keys(queryParam).length === 0) {
@@ -133,14 +117,12 @@ exports.filterByData = (req, res) => {
     });
   }
 
-  const allowedKeys = ["project_id", "due_date", "is_completed", "created_at","user_id"];
+  const allowedKeys = ["name", "email"];
   const key = Object.keys(queryParam)[0];
 
   if (!allowedKeys.includes(key)) {
     return res.status(400).send({
-      message: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(
-        ", "
-      )}`,
+      message: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(", ")}`,
     });
   }
 
@@ -152,12 +134,13 @@ exports.filterByData = (req, res) => {
       res.send(data);
     })
     .catch((err) => {
-      res.status(err.statusCode).send({
+      res.status(err.statusCode || 500).send({
         message: `Error filtering data by ${key}: ${err.message || err}`,
       });
     });
 };
 
+// Validate incoming data
 const validatePayload = (payload, requiredKeys) => {
   const payloadKeys = new Set(Object.keys(payload));
   const missingKeys = requiredKeys.filter((key) => !payloadKeys.has(key));
