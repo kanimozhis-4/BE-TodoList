@@ -1,0 +1,45 @@
+@startuml
+!define Table(name) class name << (T,#FFAAAA) >>
+
+Table(Users) {
+  +user_id: INT <<PK>>
+  name: VARCHAR
+  email: VARCHAR <<Unique>>
+}
+
+Table(Projects) {
+  +project_id: INT <<PK>>
+  user_id: INT <<FK>> 
+  name: VARCHAR
+  color: VARCHAR
+  is_favorite: BOOLEAN <<Default: false>>
+}
+
+Table(Tasks) {
+  +task_id: INT <<PK>>
+  project_id: INT <<FK>>
+  user_id: INT <<FK>>
+  name: VARCHAR
+  due_date: DATE
+  is_completed: BOOLEAN
+  created_at: TIMESTAMP
+}
+
+Table(Comments) {
+  +comment_id: INT <<PK>>
+  user_id: INT <<FK>>
+  project_id: INT <<FK>> 
+  task_id: INT <<FK>> 
+  content: TEXT
+  posted_at: TIMESTAMP <<Default: CURRENT_TIMESTAMP>>
+  entity_type: VARCHAR <<Check ('project', 'task')>>
+}
+
+Users -- Projects : "has"
+Projects -- Tasks : "contains"
+Users -- Tasks : "owns"
+Users -- Comments : "posts"
+Projects -- Comments : "has comments"
+Tasks -- Comments : "has comments"
+
+@enduml

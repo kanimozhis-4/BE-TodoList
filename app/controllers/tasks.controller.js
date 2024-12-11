@@ -113,6 +113,9 @@ exports.deleteAllData = (req, res) => {
       res.send({ message: "All tasks deleted successfully!" });
     })
     .catch((err) => {
+      if (err.statusCode === 404) {
+        res.send({ message: "All tasks deleted successfully!" });
+      }
       res.status(500).send({
         message: `Error in deleteAllData: ${err.message || err}`,
       });
@@ -128,7 +131,17 @@ exports.filterByData = (req, res) => {
     });
   }
 
+  const allowedKeys = ["project_id", "due_date", "is_completed", "created_at"];
   const key = Object.keys(queryParam)[0];
+
+  if (!allowedKeys.includes(key)) {
+    return res.status(400).send({
+      message: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(
+        ", "
+      )}`,
+    });
+  }
+
   const value = queryParam[key];
 
   modelPath

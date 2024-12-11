@@ -14,4 +14,4 @@ router.delete("/delete/:id", controller.deleteById);
 // delete all Data
 router.delete("/", controller.deleteAllData); 
 
-module.exports=router;
+module.exports=router;                                                                                                                                                                                                                          

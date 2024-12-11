@@ -36,7 +36,7 @@ exports.deleteById = (Id) => {
 };
 
 exports.deleteAllData = () => {
-  const query = `DELETE FROM tasks;`;
+  const query = `Delete from tasks`;
   return db.runQuery(query, []);
 };
 

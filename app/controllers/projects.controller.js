@@ -107,7 +107,7 @@ exports.deleteAllData = (req, res) => {
   modelPath
     .deleteAllData()
     .then(() => {
-      res.send({ message: "All tasks deleted successfully!" });
+      res.send({ message: "All projects deleted successfully!" });
     })
     .catch((err) => {
       res.status(500).send({
