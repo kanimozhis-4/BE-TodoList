@@ -8,21 +8,12 @@ const modelPath = require(path.join(
 
 // Create a new task
 exports.createTask = (req, res) => {
-  const requiredKeys = ["content", "description", "due_date", "project_id","user_id"];
-  const missingKeys = validatePayload(req.body, requiredKeys);
-
-  if (missingKeys) {
-    return res.status(400).send({
-      message: `Missing required keys: ${missingKeys.join(", ")}`,
-    });
-  }
-
   const Data = {
     content: req.body.content,
     description: req.body.description,
     due_date: req.body.due_date,
     is_completed: req.body.is_completed || false,
-    user_id:req.body.user_id,
+    user_id: req.body.user_id,
     project_id: req.body.project_id,
   };
 
@@ -38,24 +29,24 @@ exports.createTask = (req, res) => {
     });
 };
 
+exports.getAllData = (req, res) => {
+  modelPath
+    .getAllData()
+    .then((data) => res.send(data))
+    .catch((err) =>
+      res.status(500).send({ message: `Error in getAllData: ${err}` })
+    );
+};
+
 // Update a task by ID
 exports.updateById = (req, res) => {
-  const requiredKeys = ["content", "description", "due_date", "project_id","user_id"];
-  const missingKeys = validatePayload(req.body, requiredKeys);
-
-  if (missingKeys) {
-    return res.status(400).send({
-      message: `Missing required keys: ${missingKeys.join(", ")}`,
-    });
-  }
-
   const Data = {
     content: req.body.content,
     description: req.body.description,
     due_date: req.body.due_date,
     is_completed: req.body.is_completed || false,
     project_id: req.body.project_id,
-    user_id:req.body.user_id,
+    user_id: req.body.user_id,
     id: req.params.id,
   };
 
@@ -133,7 +124,13 @@ exports.filterByData = (req, res) => {
     });
   }
 
-  const allowedKeys = ["project_id", "due_date", "is_completed", "created_at","user_id"];
+  const allowedKeys = [
+    "project_id",
+    "due_date",
+    "is_completed",
+    "created_at",
+    "user_id",
+  ];
   const key = Object.keys(queryParam)[0];
 
   if (!allowedKeys.includes(key)) {
@@ -156,10 +153,4 @@ exports.filterByData = (req, res) => {
         message: `Error filtering data by ${key}: ${err.message || err}`,
       });
     });
-};
-
-const validatePayload = (payload, requiredKeys) => {
-  const payloadKeys = new Set(Object.keys(payload));
-  const missingKeys = requiredKeys.filter((key) => !payloadKeys.has(key));
-  return missingKeys.length > 0 ? missingKeys : null;
 };

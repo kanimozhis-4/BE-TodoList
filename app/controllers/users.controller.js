@@ -1,17 +1,13 @@
 const path = require("path");
-const modelPath = require(path.join(__dirname, "..", "models", "users.model.js"));
+const modelPath = require(path.join(
+  __dirname,
+  "..",
+  "models",
+  "users.model.js"
+));
 
 // Create a new user
 exports.createUser = (req, res) => {
-  const requiredKeys = ["name", "email"];
-  const missingKeys = validatePayload(req.body, requiredKeys);
-
-  if (missingKeys) {
-    return res.status(400).send({
-      message: `Missing required keys: ${missingKeys.join(", ")}`,
-    });
-  }
-
   const Data = {
     name: req.body.name,
     email: req.body.email,
@@ -29,17 +25,17 @@ exports.createUser = (req, res) => {
     });
 };
 
+exports.getAllData = (req, res) => {
+  modelPath
+    .getAllData()
+    .then((data) => res.send(data))
+    .catch((err) =>
+      res.status(500).send({ message: `Error in getAllData: ${err}` })
+    );
+};
+
 // Update a user by ID
 exports.updateById = (req, res) => {
-  const requiredKeys = ["name", "email"];
-  const missingKeys = validatePayload(req.body, requiredKeys);
-
-  if (missingKeys) {
-    return res.status(400).send({
-      message: `Missing required keys: ${missingKeys.join(", ")}`,
-    });
-  }
-
   const Data = {
     name: req.body.name,
     email: req.body.email,
@@ -117,12 +113,15 @@ exports.filterByData = (req, res) => {
     });
   }
 
-  const allowedKeys = ["name", "email"];
+  const allowedKeys = ["name", "email", "user_id"];
   const key = Object.keys(queryParam)[0];
 
   if (!allowedKeys.includes(key)) {
+    console.log("key", key);
     return res.status(400).send({
-      message: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(", ")}`,
+      message: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(
+        ", "
+      )}`,
     });
   }
 
@@ -138,11 +137,4 @@ exports.filterByData = (req, res) => {
         message: `Error filtering data by ${key}: ${err.message || err}`,
       });
     });
-};
-
-// Validate incoming data
-const validatePayload = (payload, requiredKeys) => {
-  const payloadKeys = new Set(Object.keys(payload));
-  const missingKeys = requiredKeys.filter((key) => !payloadKeys.has(key));
-  return missingKeys.length > 0 ? missingKeys : null;
 };

@@ -7,15 +7,6 @@ const modelPath = require(path.join(
 ));
 
 exports.createProject = (req, res) => {
-  const requiredKeys = ["name", "color"];
-  const missingKeys = validatePayload(req.body, requiredKeys);
-
-  if (missingKeys) {
-    return res.status(400).send({
-      message: `Missing required keys: ${missingKeys.join(", ")}`,
-    });
-  }
-
   const Data = {
     name: req.body.name,
     color: req.body.color,
@@ -40,15 +31,6 @@ exports.getAllData = (req, res) => {
 };
 
 exports.updateById = (req, res) => {
-  const requiredKeys = ["name", "color"];
-  const missingKeys = validatePayload(req.body, requiredKeys);
-
-  if (missingKeys) {
-    return res.status(400).send({
-      message: `Missing required keys: ${missingKeys.join(", ")}`,
-    });
-  }
-
   const Data = {
     name: req.body.name,
     color: req.body.color,
@@ -94,7 +76,6 @@ exports.deleteById = (req, res) => {
 
   modelPath
     .deleteById(Id)
-    .deleteById(Id)
     .then(() => {
       res.send({ message: `deleted the successfully with ID :${Id}` });
     })
@@ -115,9 +96,37 @@ exports.deleteAllData = (req, res) => {
       });
     });
 };
+// Filter tasks based on query parameters
+exports.filterByData = (req, res) => {
+  console.log("filterbydata");
+  const queryParam = req.query;
+  if (Object.keys(queryParam).length === 0) {
+    return res.status(400).send({
+      message: "No query parameters provided.",
+    });
+  }
 
-const validatePayload = (payload, requiredKeys) => {
-  const payloadKeys = new Set(Object.keys(payload));
-  const missingKeys = requiredKeys.filter((key) => !payloadKeys.has(key));
-  return missingKeys.length > 0 ? missingKeys : null;
+  const allowedKeys = ["project_id", "name", "color", "is_favorite"];
+  const key = Object.keys(queryParam)[0];
+
+  if (!allowedKeys.includes(key)) {
+    return res.status(400).send({
+      message: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(
+        ", "
+      )}`,
+    });
+  }
+
+  const value = queryParam[key];
+
+  modelPath
+    .filterByData(key, value)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(err.statusCode).send({
+        message: `Error filtering data by ${key}: ${err.message || err}`,
+      });
+    });
 };

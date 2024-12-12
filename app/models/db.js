@@ -3,7 +3,6 @@ const db = require(path.join(__dirname, "..", "config", "db.config.js"));
 exports.runQuery = (query, values) => {
   return new Promise((resolve, reject) => {
     db.run(query, values, function (err) {
-      console.log(query,values,this)
       if (err) {
         return reject({
           message: `Error during execution: ${err}`,
@@ -14,6 +13,7 @@ exports.runQuery = (query, values) => {
         return reject({ message: "ID is not Found", statusCode: 404 });
       }
       return resolve({
+        data: { ID: this.lastID },
         message: `Operation successful with ID: ${this.lastID}`,
       });
     });
@@ -28,7 +28,7 @@ exports.runAllQuery = (query, params) => {
           statusCode: 500,
         });
       }
-      resolve(data);
+      resolve({ data: data, message: `Successfully fetched the data` });
     });
   });
 };
@@ -44,7 +44,7 @@ exports.getQuery = (query, params) => {
       if (!data) {
         return reject({ message: "ID not found", statusCode: 404 });
       }
-      resolve(data);
+      resolve({ data: data, message: `Successfully fetched the data` });
     });
   });
 };

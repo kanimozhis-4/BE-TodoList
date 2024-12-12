@@ -8,6 +8,11 @@ exports.createComment = (Data) => {
   return db.runQuery(query, values);
 };
 
+exports.getAllData = () => {
+  const query = `SELECT * from comments`;
+  return db.runAllQuery(query, []);
+};
+
 // Update a comment by ID
 exports.updateById = (Data) => {
   const query = `

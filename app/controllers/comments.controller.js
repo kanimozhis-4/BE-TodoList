@@ -1,17 +1,13 @@
 const path = require("path");
-const modelPath = require(path.join(__dirname, "..", "models", "comments.model.js"));
+const modelPath = require(path.join(
+  __dirname,
+  "..",
+  "models",
+  "comments.model.js"
+));
 
 // Create a new comment
 exports.createComment = (req, res) => {
-  const requiredKeys = ["user_id", "project_id", "content"];
-  const missingKeys = validatePayload(req.body, requiredKeys);
-
-  if (missingKeys) {
-    return res.status(400).send({
-      message: `Missing required keys: ${missingKeys.join(", ")}`,
-    });
-  }
-
   const Data = {
     user_id: req.body.user_id,
     project_id: req.body.project_id,
@@ -31,17 +27,17 @@ exports.createComment = (req, res) => {
     });
 };
 
+exports.getAllData = (req, res) => {
+  modelPath
+    .getAllData()
+    .then((data) => res.send(data))
+    .catch((err) =>
+      res.status(500).send({ message: `Error in getAllData: ${err}` })
+    );
+};
+
 // Update a comment by ID
 exports.updateById = (req, res) => {
-  const requiredKeys = ["content"];
-  const missingKeys = validatePayload(req.body, requiredKeys);
-
-  if (missingKeys) {
-    return res.status(400).send({
-      message: `Missing required keys: ${missingKeys.join(", ")}`,
-    });
-  }
-
   const Data = {
     comment_id: req.params.id,
     content: req.body.content,
@@ -112,12 +108,20 @@ exports.filterByData = (req, res) => {
     return res.status(400).send({ message: "No query parameters provided." });
   }
 
-  const allowedKeys = ["user_id", "project_id", "task_id", "content"];
+  const allowedKeys = [
+    "user_id",
+    "project_id",
+    "task_id",
+    "content",
+    "comment_id",
+  ];
   const key = Object.keys(queryParam)[0];
 
   if (!allowedKeys.includes(key)) {
     return res.status(400).send({
-      message: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(", ")}`,
+      message: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(
+        ", "
+      )}`,
     });
   }
 
@@ -133,11 +137,4 @@ exports.filterByData = (req, res) => {
         message: `Error filtering data by ${key}: ${err.message || err}`,
       });
     });
-};
-
-// Validate incoming data
-const validatePayload = (payload, requiredKeys) => {
-  const payloadKeys = new Set(Object.keys(payload));
-  const missingKeys = requiredKeys.filter((key) => !payloadKeys.has(key));
-  return missingKeys.length > 0 ? missingKeys : null;
 };

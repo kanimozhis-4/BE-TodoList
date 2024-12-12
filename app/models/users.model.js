@@ -8,6 +8,11 @@ exports.createUser = (Data) => {
   return db.runQuery(query, values);
 };
 
+exports.getAllData = () => {
+  const query = `SELECT * from users`;
+  return db.runAllQuery(query, []);
+};
+
 // Update a user by ID
 exports.updateById = (Data) => {
   const query = `
@@ -41,14 +46,6 @@ exports.deleteAllData = () => {
 
 // Filter users by specified key and value
 exports.filterByData = (key, value) => {
-  const allowedKeys = ["name", "email"];
-
-  if (!allowedKeys.includes(key)) {
-    return Promise.reject(
-      new Error(`Invalid filter key. Allowed keys: ${allowedKeys.join(", ")}`)
-    );
-  }
-
   const query = `SELECT user_id ,name , email FROM users WHERE ${key} = ?`;
   return db.runAllQuery(query, [value]);
 };

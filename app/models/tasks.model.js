@@ -9,6 +9,12 @@ exports.createTask = (Data) => {
   return db.runQuery(query, values);
 };
 
+exports.getAllData = () => {
+  const query = `SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks`;
+  return db.runAllQuery(query, []);
+};
+
 exports.updateById = (Data) => {
   const query = `  
       UPDATE tasks 

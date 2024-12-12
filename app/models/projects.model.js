@@ -35,34 +35,34 @@ exports.deleteById = (Id) => {
 exports.deleteAllData = () => {
   const query = `DELETE FROM projects`;
   return db.runQuery(query, []);
-}; 
+};
+exports.filterByData = (key, value) => {
+  const query = `SELECT * FROM projects WHERE ${key} = ?`;
+  console.log(query);
+  return db.runAllQuery(query, [value]);
+};
+
 exports.bulkInsertProjects = (projects) => {
   return new Promise((resolve, reject) => {
-    const placeholders = projects
-      .map(() => "(?, ?, ?)")  
-      .join(", ");  
-    
+    const placeholders = projects.map(() => "(?, ?, ?)").join(", ");
+
     const query = `
       INSERT INTO projects (name, color, is_favorite)
       VALUES ${placeholders};  
     `;
-    
+
     // Flatten the project array to get values for the query
-    const values = projects.flatMap((p) => [
-      p.name,
-      p.color,
-      p.is_favorite,
-    ]);
+    const values = projects.flatMap((p) => [p.name, p.color, p.is_favorite]);
 
     // Execute the query using the db.runQuery method
-    db.runQuery(query, values)
-      // .then(() => {
-      //   console.log(`${projects.length} projects inserted successfully.`);
-      //   resolve();  // Resolve the promise when the insertion is successful
-      // })
-      // .catch((error) => {
-      //   console.error('Error inserting projects in bulk:', error);
-      //   reject(error);  // Reject the promise if an error occurs
-      // });
+    db.runQuery(query, values);
+    // .then(() => {
+    //   console.log(`${projects.length} projects inserted successfully.`);
+    //   resolve();  // Resolve the promise when the insertion is successful
+    // })
+    // .catch((error) => {
+    //   console.error('Error inserting projects in bulk:', error);
+    //   reject(error);  // Reject the promise if an error occurs
+    // });
   });
 };
