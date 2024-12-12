@@ -38,7 +38,6 @@ exports.deleteAllData = () => {
 };
 exports.filterByData = (key, value) => {
   const query = `SELECT * FROM projects WHERE ${key} = ?`;
-  console.log(query);
   return db.runAllQuery(query, [value]);
 };
 

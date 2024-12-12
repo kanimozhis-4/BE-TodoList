@@ -44,15 +44,11 @@ exports.deleteAllData = () => {
 };
 
 // Filter comments by a specified key and value
-exports.filterByData = (key, value) => {
-  const allowedKeys = ["user_id", "project_id", "task_id", "content"];
+exports.filterByData = (keys, values) => {
 
-  if (!allowedKeys.includes(key)) {
-    return Promise.reject(
-      new Error(`Invalid filter key. Allowed keys: ${allowedKeys.join(", ")}`)
-    );
-  }
+    const whereClause = keys.length ? `WHERE ${keys.join(" AND ")}` : "";
+    const query = `SELECT comment_id, user_id, project_id, task_id, content, posted_at FROM Comments ${whereClause}`;
 
-  const query = `SELECT comment_id, user_id, project_id, task_id, content, posted_at FROM Comments WHERE ${key} = ?`;
-  return db.runAllQuery(query, [value]);
-};
+    return db.runAllQuery(query, values)
+}; 
+

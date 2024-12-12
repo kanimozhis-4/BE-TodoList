@@ -117,40 +117,45 @@ exports.deleteAllData = (req, res) => {
 
 // Filter tasks based on query parameters
 exports.filterByData = (req, res) => {
-  const queryParam = req.query;
-  if (Object.keys(queryParam).length === 0) {
-    return res.status(400).send({
-      message: "No query parameters provided.",
-    });
+  const queryParams = req.query;
+
+  if (Object.keys(queryParams).length === 0) {
+  return res.status(400).send({ message: "No query parameters provided." });
+  } 
+  const { keys, values, error } = validateQueryKeys(queryParams);
+
+  if (error) {
+    return res.status(400).send({ message: error });
   }
 
-  const allowedKeys = [
-    "project_id",
+modelPath
+  .filterByData(keys, values)
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((err) => {
+    res.status(err.statusCode || 500).send({
+      message: `Error filtering data by ${keys}: ${err.message || err}`,
+    });
+  });
+}; 
+function validateQueryKeys(queryParams) {
+  const allowedKeys = [ "project_id","content","task_id",
     "due_date",
     "is_completed",
     "created_at",
-    "user_id",
-  ];
-  const key = Object.keys(queryParam)[0];
+    "user_id",];
+  const keys = [];
+  const values = [];
 
-  if (!allowedKeys.includes(key)) {
-    return res.status(400).send({
-      message: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(
-        ", "
-      )}`,
-    });
+  for (const [key, value] of Object.entries(queryParams)) {
+    if (!allowedKeys.includes(key)) {
+      return { error: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(", ")}` };
+  }
+    // Add key and value directly without type checks
+    keys.push(`${key} = ?`);
+    values.push(value);
   }
 
-  const value = queryParam[key];
-
-  modelPath
-    .filterByData(key, value)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(err.statusCode).send({
-        message: `Error filtering data by ${key}: ${err.message || err}`,
-      });
-    });
-};
+  return { keys, values };
+}
