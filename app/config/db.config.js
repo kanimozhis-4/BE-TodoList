@@ -1,6 +1,8 @@
 const sqlite3 = require("sqlite3").verbose();
+const path = require("path");
+const DBPath=path.join(__dirname,"..","..","test.db")
 
-const db = new sqlite3.Database("./connect.db", (err) => {
+const db = new sqlite3.Database(DBPath, (err) => {
   if (err) {
     console.error("Error opening database:", err.message);
   } else {
@@ -27,7 +29,9 @@ const createTables = () => {
         name TEXT NOT NULL,
         color TEXT NOT NULL,
         is_favorite BOOLEAN DEFAULT FALSE,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+         user_id INTEGER NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+         FOREIGN KEY(user_id) REFERENCES users(user_id)
       );
     `;
 
@@ -45,12 +49,12 @@ const createTables = () => {
         ON DELETE CASCADE ON UPDATE CASCADE,  
       FOREIGN KEY (user_id) REFERENCES Users(user_id) 
         ON DELETE CASCADE ON UPDATE CASCADE   
-    );`;
+    );`; 
   const commentsQuery = `CREATE TABLE IF NOT EXISTS comments (
       comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
       user_id INT NOT NULL,
-      project_id INT NOT NULL,   -- Project ID is always required
-      task_id INT,               -- Task ID is nullable
+      project_id INT NOT NULL,  
+      task_id INT DEFAULT NULL,               
       content TEXT NOT NULL,
       posted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,

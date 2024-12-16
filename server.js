@@ -7,6 +7,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const cors = require("cors");
 app.use(cors());
+const logger = require('./app/utils/logger.js');
+
 const taskPath = require(path.join(
   __dirname,
   "app",
@@ -36,4 +38,4 @@ app.use("/todoList/project", projectPath);
 app.use("/todoList/user", userPath);
 app.use("/todoList/comment", commentPath);
 
-app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
+app.listen(PORT, () => logger.info(`Server is running on port ${PORT}`));

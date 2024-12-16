@@ -8,11 +8,12 @@ const controller = require(path.join(
   "controllers",
   "projects.controller.js"
 ));
-// const fakeData=require(path.join(__dirname,'..','controllers','generate.fake.data.controller.js'))
+
 const projectSchema = Joi.object({
   name: Joi.string().min(2).required(),
   color: Joi.string().min(3).required(),
   is_favorite: Joi.boolean().optional(),
+  user_id: Joi.number().required(),
 });
 const validateProject = (req, res, next) => {
   const { error } = projectSchema.validate(req.body);
@@ -22,7 +23,6 @@ const validateProject = (req, res, next) => {
   next();
 };
 
-// router.post('/fakeData',fakeData.generateFakeData);
 // create project
 router.post("/", validateProject, controller.createProject);
 // filter by data
