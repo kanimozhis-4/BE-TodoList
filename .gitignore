@@ -9,8 +9,20 @@ logs
 *.log
 logs/*
 
-#files 
+# Ignore large database file
 test.db
+
+# Ignore git objects (Git's internal storage)
+.git/objects/
+.git/objects/pack/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore faker package files inside node_modules (if necessary)
+node_modules/faker/
+node_modules/@faker-js/
+
 
 
 # Environment Variables
