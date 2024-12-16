@@ -9,6 +9,10 @@ logs
 *.log
 logs/*
 
+#files 
+test.db
+
+
 # Environment Variables
 .env
 
