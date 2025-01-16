@@ -10,10 +10,10 @@ const controller = require(path.join(
 ));
 
 const taskSchema = Joi.object({
-  content: Joi.string().min(2).required(),
-  description: Joi.string().optional(),
-  due_date: Joi.date().optional(),
-  is_completed: Joi.boolean().optional(),
+  content: Joi.string().required(),
+  description: Joi.string().allow('').optional(), 
+  due_date: Joi.date().allow(null).optional(),
+  is_completed: Joi.boolean().allow(null).optional(), 
   project_id: Joi.number().integer().required(),
   user_id: Joi.number().integer().required(),
 });
@@ -21,6 +21,7 @@ const taskSchema = Joi.object({
 const validateTask = (req, res, next) => {
   const { error } = taskSchema.validate(req.body);
   if (error) {
+    console.log("tttttttttttttttttt")
     return res.status(400).send({ message: error.details[0].message });
   }
   next();

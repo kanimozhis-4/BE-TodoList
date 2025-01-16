@@ -21,7 +21,7 @@ const createTables = () => {
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE
-  );`;
+  );`; 
 
   const projectQuery = `
      CREATE TABLE IF NOT EXISTS projects (
@@ -33,7 +33,7 @@ const createTables = () => {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
          FOREIGN KEY(user_id) REFERENCES users(user_id)
       );
-    `;
+    `; 
 
   const taskQuery = `
       CREATE TABLE IF NOT EXISTS tasks (
@@ -49,7 +49,7 @@ const createTables = () => {
         ON DELETE CASCADE ON UPDATE CASCADE,  
       FOREIGN KEY (user_id) REFERENCES Users(user_id) 
         ON DELETE CASCADE ON UPDATE CASCADE   
-    );`; 
+    );`;  
   const commentsQuery = `CREATE TABLE IF NOT EXISTS comments (
       comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
       user_id INT NOT NULL,

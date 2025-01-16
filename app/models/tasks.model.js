@@ -3,10 +3,10 @@ const db = require(path.join(__dirname, "..", "models", "db.js"));
 
 exports.createTask = (Data) => {
   const query = `INSERT INTO tasks (content, description, due_date, is_completed, user_id,project_id) 
-                 VALUES (?, ?, ?, ?, ?,?)`;
+                 VALUES (?, ?, ?, ?, ?,?) RETURNING *`;
   const values = Object.values(Data);
 
-  return db.runQuery(query, values);
+  return db.runQuery(query, values,Data);
 };
 
 exports.getAllData = () => {
@@ -25,11 +25,11 @@ exports.updateById = (Data) => {
           is_completed = ?, 
           project_id = ? ,
           user_id=?
-      WHERE id = ?;
+      WHERE task_id = ?;
     `;
   const values = Object.values(Data);
 
-  return db.runQuery(query, values);
+  return db.runQuery(query, values,Data);
 };
 
 exports.getById = (Id) => {
@@ -38,7 +38,7 @@ exports.getById = (Id) => {
 };
 
 exports.deleteById = (Id) => {
-  const query = `DELETE FROM tasks WHERE id = ?`;
+  const query = `DELETE FROM tasks WHERE task_id = ?`;
   return db.runQuery(query, [Id]);
 };
 

@@ -1,27 +1,32 @@
 const path = require("path");
 const db = require(path.join(__dirname, "..", "config", "db.config.js"));
 const logger = require(path.join(__dirname, "..", "utils", "logger.js"));
-exports.runQuery = (query, values) => {
+exports.runQuery = (query, values,Data) => {
   return new Promise((resolve, reject) => {
-    db.run(query, values, function (err) {
+    db.run(query, values, function (err,v) {
       if (err) {
         logger.error(`Query Execution Error: ${err} | Query: ${query}`);
         return reject({
           message: `Error during execution: ${err}`,
           statusCode: 500,
         });
-      }
+      } 
       if (this.changes === 0) {
         logger.warn(`No records updated | Query: ${query}`);
         return reject({ message: "ID is not Found", statusCode: 404 });
       }
       logger.info(`Query successful | ID: ${this.lastID} | Query: ${query}`);
+      // const selectQuery = `SELECT * FROM tasks WHERE id = ?`;
+      // db.get(selectQuery, [this.lastID], (err, row) => {
       return resolve({
-        data: { ID: this.lastID },
+        data:{...Data,id:this.lastID},
+        Id: this.lastID ,
+        // value:{...row},
         message: `Operation successful with ID: ${this.lastID}`,
-      });
+      }); 
+      })
     });
-  });
+  // });
 };
 exports.runAllQuery = (query, params) => {
   return new Promise((resolve, reject) => {

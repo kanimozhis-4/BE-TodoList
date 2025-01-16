@@ -53,14 +53,14 @@ exports.updateById = (req, res) => {
     is_completed: req.body.is_completed || false,
     project_id: req.body.project_id,
     user_id: req.body.user_id,
-    id: req.params.id,
-  };
+    id: parseInt(req.params.id),
+  }; 
 
   modelPath
     .updateById(Data)
     .then(() => {
       logger.info(`Task with ID: ${Data.id} updated successfully`);
-      res.send({ message: `updated successfully in the Id: ${Data.id}` });
+      res.send({ message: `updated successfully in the Id: ${Data.id}`,data:{...Data,task_id:Data.id} });
     })
     .catch((err) => {
       logger.error(`Error updating task with ID: ${Data.id}`, err);
@@ -104,7 +104,7 @@ exports.deleteById = (req, res) => {
     .deleteById(Id)
     .then(() => {
       logger.info(`Task with ID: ${Id} deleted successfully`);
-      res.send({ message: `deleted the successfully with ID :${Id}` });
+      res.send({ message: `deleted the successfully with ID :${Id}`,id:Id });
     })
     .catch((err) => {
       logger.error(`Error deleting task with ID: ${Id}`, err);

@@ -2,9 +2,9 @@ const path = require("path");
 const db = require(path.join(__dirname, "..", "models", "db.js"));
 
 exports.createProject = (Data) => {
-  const query = `INSERT INTO projects (name, color, is_favorite) VALUES (?, ?, ?)`;
+  const query = `INSERT INTO projects (name, color, is_favorite,user_id) VALUES (?, ?, ?,?)`;
   const values = Object.values(Data);
-  return db.runQuery(query, values);
+  return db.runQuery(query, values,Data);
 };
 
 exports.getAllData = () => {
@@ -19,7 +19,7 @@ exports.updateById = (Data) => {
     WHERE project_id = ?;
   `;
   const values = Object.values(Data);
-  return db.runQuery(query, values);
+  return db.runQuery(query, values,Data);
 };
 
 exports.getById = (Id) => {
