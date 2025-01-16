@@ -1,4 +1,6 @@
 const path = require("path");
+const bcrypt = require('bcryptjs');
+const jsonwebtoken = require('jsonwebtoken');
 const modelPath = require(path.join(
   __dirname,
   "..",
@@ -10,14 +12,26 @@ const logger = require(path.join(__dirname, "..", "utils", "logger.js"));
 // Create a new user
 exports.createUser = (req, res) => {
   const Data = {
-    name: req.body.name,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
     email: req.body.email,
-  };
-
-  modelPath
-    .createUser(Data)
+    password_code: req.body.password_code,
+  }; 
+  bcrypt.hash(Data.password_code, 10, (err, hashedPassword) => {
+    if (err) {
+      return res.status(500).send({ error: 'Password hashing error' });
+    }
+  
+    const newUser = {
+      first_name: Data.first_name,
+      last_name: Data.last_name,
+      email: Data.email,
+      password_code: hashedPassword,
+    };
+    modelPath
+    .createUser(newUser)
     .then((data) => {
-      logger.info(`User created successfully: ${data.name}`);
+      logger.info(`User created successfully: ${data.first_name}`);
       res.status(201).send(data);
     })
     .catch((err) => {
@@ -26,7 +40,49 @@ exports.createUser = (req, res) => {
         message: `Error in createUser: ${err.message || err}`,
       });
     });
-};
+
+  
+  });
+  
+ 
+}; 
+exports.loginUser=(req,res)=>{
+  const { email, password_code } = req.body;
+  if (!email || !password_code) {
+    return res.status(400).send({ message: 'Email and Password are required' });
+  } 
+  modelPath.getByEmail(email)
+  .then(user => {
+    if (!user) {
+      return res.status(404).send({ message: 'User not found' });
+    }  
+    user=user.data
+ 
+  bcrypt.compare(password_code, user.password_code, (err, isMatch) => {
+    if(err){
+      return res.status(500).send({ message: 'Error comparing passwords' });
+    } 
+    if(!isMatch){
+      return res.status(400).send({ message: 'Invalid credentials' });          
+    } 
+    const token = jsonwebtoken.sign({user: user}, process.env.SECRET_KEY, { expiresIn: '1h' });
+    res.cookie('token', token, 
+      { httpOnly: true, 
+        secure: true, 
+        SameSite: 'strict' , 
+        expires: new Date(Number(new Date()) + 30*60*1000) 
+      }); 
+      res.status(200).send({ message:`Login successful `, token:token});
+     }) 
+  })
+
+  .catch(err => {
+    console.error('Error in login:', err);
+    res.status(500).send({ message: 'Internal server error' });
+  });
+
+
+}
 
 exports.getAllData = (req, res) => {
   modelPath

@@ -17,11 +17,18 @@ const db = new sqlite3.Database(DBPath, (err) => {
 
 // Function to create the 'projects' and 'tasks' tables
 const createTables = () => {
-  const userQuery = `CREATE TABLE IF NOT EXISTS users (
+ 
+  const userQuery=`
+  CREATE TABLE IF NOT EXISTS users (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE
-  );`; 
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_code TEXT NOT NULL
+);`
+;
+
+
 
   const projectQuery = `
      CREATE TABLE IF NOT EXISTS projects (

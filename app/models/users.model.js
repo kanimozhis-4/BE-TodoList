@@ -3,7 +3,7 @@ const db = require(path.join(__dirname, "..", "models", "db.js"));
 
 // Create a new user
 exports.createUser = (Data) => {
-  const query = `INSERT INTO users (name, email) VALUES (?, ?)`;
+  const query = `INSERT INTO users (first_name,last_name,email,password_code) VALUES (?, ?,?,?)`;
   const values = Object.values(Data);
   return db.runQuery(query, values);
 };
@@ -18,7 +18,8 @@ exports.updateById = (Data) => {
   const query = `
     UPDATE users 
     SET 
-        name = ?, 
+        first_name = ?, 
+        last_name = ?,
         email = ? 
     WHERE user_id = ?;
   `;
@@ -28,10 +29,14 @@ exports.updateById = (Data) => {
 
 // Get a user by ID
 exports.getById = (Id) => {
-  const query = `SELECT user_id ,name, email FROM users WHERE user_id = ?;`;
+  const query = `SELECT * FROM users WHERE user_id = ?;`;
   return db.getQuery(query, [Id]);
 };
-
+//   get user by email
+exports.getByEmail = (email) => {
+  const query = `SELECT * FROM users WHERE email = ?;`;
+  return db.getQuery(query, [email]);
+};
 // Delete a user by ID
 exports.deleteById = (Id) => {
   const query = `DELETE FROM users WHERE user_id = ?`;
@@ -46,6 +51,6 @@ exports.deleteAllData = () => {
 
 // Filter users by specified key and value
 exports.filterByData = (key, value) => {
-  const query = `SELECT user_id ,name , email FROM users WHERE ${key} = ?`;
+  const query = `SELECT * FROM users WHERE ${key} = ?`;
   return db.runAllQuery(query, [value]);
 };
