@@ -6,13 +6,13 @@ exports.createTask = (Data) => {
                  VALUES (?, ?, ?, ?, ?,?) RETURNING *`;
   const values = Object.values(Data);
 
-  return db.runQuery(query, values,Data);
+  return db.runQuery(query, values, Data);
 };
 
-exports.getAllData = () => {
+exports.getAllData = (userId) => {
   const query = `SELECT task_id,content,description,due_date,is_completed
-  created_at,project_id,user_id FROM tasks`;
-  return db.runAllQuery(query, []);
+  created_at,project_id,user_id FROM tasks where user_id=?`;
+  return db.runAllQuery(query, [userId]);
 };
 
 exports.updateById = (Data) => {
@@ -29,7 +29,7 @@ exports.updateById = (Data) => {
     `;
   const values = Object.values(Data);
 
-  return db.runQuery(query, values,Data);
+  return db.runQuery(query, values, Data);
 };
 
 exports.getById = (Id) => {

@@ -152,13 +152,7 @@ exports.filterByData = (req, res) => {
     });
 };
 function validateQueryKeys(queryParams) {
-  const allowedKeys = [
-    "user_id",
-    "project_id",
-    "task_id",
-    "content",
-    "comment_id",
-  ];
+  const allowedKeys = ["project_id", "task_id", "content", "comment_id"];
   const keys = [];
   const values = [];
 

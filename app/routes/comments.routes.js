@@ -12,7 +12,6 @@ const controller = require(path.join(
 ));
 
 const commentSchema = Joi.object({
-  user_id: Joi.number().integer().required(),
   project_id: Joi.number().integer().required(),
   task_id: Joi.number().integer().optional(),
   content: Joi.string().min(1).required(),

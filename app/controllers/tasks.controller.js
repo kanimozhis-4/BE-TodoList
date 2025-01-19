@@ -13,7 +13,7 @@ exports.createTask = (req, res) => {
     description: req.body.description,
     due_date: req.body.due_date,
     is_completed: req.body.is_completed || false,
-    user_id: req.body.user_id,
+    user_id: req.user.user_id,
     project_id: req.body.project_id,
   };
 
@@ -32,8 +32,9 @@ exports.createTask = (req, res) => {
 };
 
 exports.getAllData = (req, res) => {
+  const userId = req.user.user_id;
   modelPath
-    .getAllData()
+    .getAllData(userId)
     .then((data) => {
       logger.info("Fetched all tasks:", data);
       res.send(data);
@@ -52,15 +53,18 @@ exports.updateById = (req, res) => {
     due_date: req.body.due_date,
     is_completed: req.body.is_completed || false,
     project_id: req.body.project_id,
-    user_id: req.body.user_id,
+    user_id: req.user.user_id,
     id: parseInt(req.params.id),
-  }; 
+  };
 
   modelPath
     .updateById(Data)
     .then(() => {
       logger.info(`Task with ID: ${Data.id} updated successfully`);
-      res.send({ message: `updated successfully in the Id: ${Data.id}`,data:{...Data,task_id:Data.id} });
+      res.send({
+        message: `updated successfully in the Id: ${Data.id}`,
+        data: { ...Data, task_id: Data.id },
+      });
     })
     .catch((err) => {
       logger.error(`Error updating task with ID: ${Data.id}`, err);
@@ -104,7 +108,7 @@ exports.deleteById = (req, res) => {
     .deleteById(Id)
     .then(() => {
       logger.info(`Task with ID: ${Id} deleted successfully`);
-      res.send({ message: `deleted the successfully with ID :${Id}`,id:Id });
+      res.send({ message: `deleted the successfully with ID :${Id}`, id: Id });
     })
     .catch((err) => {
       logger.error(`Error deleting task with ID: ${Id}`, err);
@@ -167,7 +171,6 @@ function validateQueryKeys(queryParams) {
     "due_date",
     "is_completed",
     "created_at",
-    "user_id",
   ];
   const keys = [];
   const values = [];

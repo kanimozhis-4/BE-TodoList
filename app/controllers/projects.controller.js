@@ -13,7 +13,7 @@ exports.createProject = (req, res) => {
     name: req.body.name,
     color: req.body.color,
     is_favorite: req.body.is_favorite || false,
-    user_id:req.body.user_id
+    user_id: req.user.user_id,
   };
 
   modelPath
@@ -29,9 +29,12 @@ exports.createProject = (req, res) => {
 };
 
 exports.getAllData = (req, res) => {
+  const userId = req.user.user_id;
+  console.log("userID", userId);
   modelPath
-    .getAllData()
+    .getAllData(userId)
     .then((data) => {
+      console.log("data", data);
       logger.info(`Fetched ${data.length} projects`);
       res.send(data);
     })
@@ -46,15 +49,19 @@ exports.updateById = (req, res) => {
     name: req.body.name,
     color: req.body.color,
     is_favorite: req.body.is_favorite || false,
-    user_id:req.body.user_id,
+    user_id: req.user.user_id,
     id: req.params.id,
-  }; 
+  };
 
   modelPath
     .updateById(Data)
     .then(() => {
       logger.info(`Project with ID: ${Data.id} updated successfully`);
-      res.send({ message: `updated successfully in the Id: ${Data.id}`,id:Data.id ,data:Data});
+      res.send({
+        message: `updated successfully in the Id: ${Data.id}`,
+        id: Data.id,
+        data: Data,
+      });
     })
     .catch((err) => {
       logger.error(`Error updating project with ID ${Data.id}: ${err.message}`);
@@ -96,7 +103,7 @@ exports.deleteById = (req, res) => {
     .deleteById(Id)
     .then(() => {
       logger.info(`Project with ID ${Id} deleted successfully`);
-      res.send({ message: `deleted the successfully with ID :${Id}`,id:Id });
+      res.send({ message: `deleted the successfully with ID :${Id}`, id: Id });
     })
     .catch((err) => {
       logger.error(`Error deleting project with ID ${Id}: ${err.message}`);
@@ -153,7 +160,6 @@ function validateQueryKeys(queryParams) {
     "color",
     "is_favorite",
     "created_at",
-    "user_id",
   ];
   const keys = [];
   const values = [];

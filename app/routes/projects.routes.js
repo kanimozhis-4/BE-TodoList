@@ -13,7 +13,6 @@ const projectSchema = Joi.object({
   name: Joi.string().required(),
   color: Joi.string().min(3).required(),
   is_favorite: Joi.boolean().optional(),
-  user_id: Joi.number().required(),
 });
 const validateProject = (req, res, next) => {
   const { error } = projectSchema.validate(req.body);
