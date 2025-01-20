@@ -73,7 +73,7 @@ exports.loginUser = (req, res) => {
           secure: true,
           sameSite: "Lax",
           // domain:"localhost",
-          domain:"127.0.0.1",
+          // domain:"127.0.0.1",
           // domain: "be-todolist-production.up.railway.app", 
           // domain: "127.0.0.1",
           path: "/",
