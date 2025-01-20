@@ -30,11 +30,9 @@ exports.createProject = (req, res) => {
 
 exports.getAllData = (req, res) => {
   const userId = req.user.user_id;
-  console.log("userID", userId);
   modelPath
     .getAllData(userId)
     .then((data) => {
-      console.log("data", data);
       logger.info(`Fetched ${data.length} projects`);
       res.send(data);
     })

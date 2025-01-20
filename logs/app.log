@@ -13473,3 +13473,778 @@
 2025-01-19T06:57:48.698Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
   created_at,project_id,user_id FROM tasks where user_id=?
 2025-01-19T06:57:48.699Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:49:31.631Z [info]: Server is running on port 8080
+2025-01-19T18:52:08.310Z [info]: Query successful | Data: {"user_id":10002,"email":"kavi@gmail.com","first_name":"kavi","last_name":"Selvan","password_code":"$2a$10$PDNRdP/VT3nVz/FciwJ7j.hmPD.61nAsVyx9n4CDJOHj8PXNSCcQ2"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-19T18:52:08.552Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:52:08.552Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:52:08.554Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:52:08.556Z [info]: Fetched undefined projects
+2025-01-19T18:52:08.569Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:52:08.569Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:52:08.570Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:52:08.571Z [info]: Fetched undefined projects
+2025-01-19T18:52:15.516Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:52:15.517Z [info]: Fetched undefined projects
+2025-01-19T18:52:15.534Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:52:15.534Z [info]: Fetched undefined projects
+2025-01-19T18:52:15.548Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:52:15.548Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:52:15.553Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:52:15.553Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:52:18.533Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:52:18.534Z [info]: Fetched undefined projects
+2025-01-19T18:52:18.542Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:52:18.542Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:52:20.013Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:52:20.014Z [info]: Fetched undefined projects
+2025-01-19T18:52:20.017Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:52:20.017Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:52:21.448Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:52:21.449Z [info]: Fetched undefined projects
+2025-01-19T18:52:21.470Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:52:21.470Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:52:27.735Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:52:27.736Z [info]: Fetched undefined projects
+2025-01-19T18:52:27.745Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:52:27.745Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:07.720Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:07.721Z [info]: Fetched undefined projects
+2025-01-19T18:53:07.722Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:07.722Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:07.735Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:07.736Z [info]: Fetched undefined projects
+2025-01-19T18:53:07.750Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:07.751Z [info]: Fetched undefined projects
+2025-01-19T18:53:07.754Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:07.755Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:07.762Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:07.763Z [info]: Fetched undefined projects
+2025-01-19T18:53:07.804Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:07.804Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:07.826Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:07.826Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:13.680Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:13.681Z [info]: Fetched undefined projects
+2025-01-19T18:53:13.682Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:13.682Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:13.699Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:13.701Z [info]: Fetched undefined projects
+2025-01-19T18:53:13.784Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:13.802Z [info]: Fetched undefined projects
+2025-01-19T18:53:13.806Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:13.806Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:13.860Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:13.870Z [info]: Fetched undefined projects
+2025-01-19T18:53:13.872Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:13.872Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:13.885Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:13.885Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:19.353Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:19.357Z [info]: Fetched undefined projects
+2025-01-19T18:53:19.358Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:19.359Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:19.382Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:19.384Z [info]: Fetched undefined projects
+2025-01-19T18:53:19.395Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:19.401Z [info]: Fetched undefined projects
+2025-01-19T18:53:19.427Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:19.427Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:19.428Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:19.429Z [info]: Fetched undefined projects
+2025-01-19T18:53:19.462Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:19.463Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:19.487Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:19.488Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:56.448Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:56.452Z [info]: Fetched undefined projects
+2025-01-19T18:53:56.465Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:56.465Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:56.470Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:56.472Z [info]: Fetched undefined projects
+2025-01-19T18:53:56.514Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:56.518Z [info]: Fetched undefined projects
+2025-01-19T18:53:56.519Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:56.519Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:56.575Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:53:56.583Z [info]: Fetched undefined projects
+2025-01-19T18:53:56.585Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:56.585Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:53:56.612Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:53:56.612Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:54:37.462Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:54:37.462Z [info]: Fetched undefined projects
+2025-01-19T18:54:37.464Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:54:37.464Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:54:40.875Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:54:40.876Z [info]: Fetched undefined projects
+2025-01-19T18:54:40.920Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:54:40.920Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:54:55.541Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:54:55.544Z [info]: Fetched undefined projects
+2025-01-19T18:54:55.544Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:54:55.545Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:54:55.564Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:54:55.570Z [info]: Fetched undefined projects
+2025-01-19T18:54:55.571Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:54:55.571Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:54:55.636Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:54:55.637Z [info]: Fetched undefined projects
+2025-01-19T18:54:55.638Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:54:55.638Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:54:55.667Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:54:55.671Z [info]: Fetched undefined projects
+2025-01-19T18:54:55.673Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:54:55.673Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:03.345Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:03.346Z [info]: Fetched undefined projects
+2025-01-19T18:55:03.350Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:03.351Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:03.387Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:03.392Z [info]: Fetched undefined projects
+2025-01-19T18:55:03.398Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:03.399Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:03.411Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:03.414Z [info]: Fetched undefined projects
+2025-01-19T18:55:03.445Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:03.448Z [info]: Fetched undefined projects
+2025-01-19T18:55:03.450Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:03.450Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:03.496Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:03.496Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:07.076Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:07.078Z [info]: Fetched undefined projects
+2025-01-19T18:55:07.107Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:07.113Z [info]: Fetched undefined projects
+2025-01-19T18:55:07.119Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:07.119Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:07.167Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:07.177Z [info]: Fetched undefined projects
+2025-01-19T18:55:07.225Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:07.226Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:07.236Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:07.242Z [info]: Fetched undefined projects
+2025-01-19T18:55:07.274Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:07.274Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:07.290Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:07.291Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:15.198Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:15.205Z [info]: Fetched undefined projects
+2025-01-19T18:55:15.213Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:15.213Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:15.245Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:15.251Z [info]: Fetched undefined projects
+2025-01-19T18:55:15.266Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:15.266Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:15.272Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:15.277Z [info]: Fetched undefined projects
+2025-01-19T18:55:15.290Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:15.291Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:15.298Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:15.302Z [info]: Fetched undefined projects
+2025-01-19T18:55:15.318Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:15.327Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:41.972Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:41.980Z [info]: Fetched undefined projects
+2025-01-19T18:55:41.994Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:41.994Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:41.995Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:42.002Z [info]: Fetched undefined projects
+2025-01-19T18:55:42.024Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:42.029Z [info]: Fetched undefined projects
+2025-01-19T18:55:42.031Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:42.032Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:42.042Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:55:42.044Z [info]: Fetched undefined projects
+2025-01-19T18:55:42.054Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:42.054Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:55:42.069Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:55:42.069Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:14.304Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:14.304Z [info]: Fetched undefined projects
+2025-01-19T18:56:14.309Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:14.309Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:14.329Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:14.330Z [info]: Fetched undefined projects
+2025-01-19T18:56:14.338Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:14.339Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:14.350Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:14.360Z [info]: Fetched undefined projects
+2025-01-19T18:56:14.371Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:14.377Z [info]: Fetched undefined projects
+2025-01-19T18:56:14.393Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:14.394Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:14.408Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:14.408Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:43.404Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:43.409Z [info]: Fetched undefined projects
+2025-01-19T18:56:43.445Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:43.445Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:43.475Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:43.487Z [info]: Fetched undefined projects
+2025-01-19T18:56:43.552Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:43.582Z [info]: Fetched undefined projects
+2025-01-19T18:56:43.603Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:43.603Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:43.657Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:43.658Z [info]: Fetched undefined projects
+2025-01-19T18:56:43.678Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:43.678Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:43.701Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:43.702Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:54.411Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:54.413Z [info]: Fetched undefined projects
+2025-01-19T18:56:54.416Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:54.417Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:54.427Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:54.436Z [info]: Fetched undefined projects
+2025-01-19T18:56:54.473Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:54.485Z [info]: Fetched undefined projects
+2025-01-19T18:56:54.490Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:54.490Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:54.514Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:54.514Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:56:54.515Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:56:54.518Z [info]: Fetched undefined projects
+2025-01-19T18:56:54.551Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:56:54.552Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:11.397Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:11.403Z [info]: Fetched undefined projects
+2025-01-19T18:57:11.404Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:11.404Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:11.414Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:11.415Z [info]: Fetched undefined projects
+2025-01-19T18:57:11.448Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:11.450Z [info]: Fetched undefined projects
+2025-01-19T18:57:11.452Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:11.453Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:11.468Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:11.469Z [info]: Fetched undefined projects
+2025-01-19T18:57:11.471Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:11.471Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:11.480Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:11.481Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:20.589Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:20.589Z [info]: Fetched undefined projects
+2025-01-19T18:57:20.590Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:20.590Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:20.596Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:20.597Z [info]: Fetched undefined projects
+2025-01-19T18:57:20.606Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:20.607Z [info]: Fetched undefined projects
+2025-01-19T18:57:20.608Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:20.608Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:20.618Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:20.619Z [info]: Fetched undefined projects
+2025-01-19T18:57:20.631Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:20.632Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:20.641Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:20.641Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:31.700Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:31.702Z [info]: Fetched undefined projects
+2025-01-19T18:57:31.711Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:31.712Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:31.733Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:31.733Z [info]: Fetched undefined projects
+2025-01-19T18:57:31.735Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:31.735Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:31.748Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:31.753Z [info]: Fetched undefined projects
+2025-01-19T18:57:31.755Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:31.755Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:31.771Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:31.772Z [info]: Fetched undefined projects
+2025-01-19T18:57:31.772Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:31.773Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:41.609Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:41.611Z [info]: Fetched undefined projects
+2025-01-19T18:57:41.628Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:41.629Z [info]: Fetched undefined projects
+2025-01-19T18:57:41.631Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:41.631Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:41.646Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:41.647Z [info]: Fetched undefined projects
+2025-01-19T18:57:41.649Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:41.649Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:41.666Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:57:41.669Z [info]: Fetched undefined projects
+2025-01-19T18:57:41.671Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:41.671Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:57:41.678Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:57:41.678Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:09.971Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:09.973Z [info]: Fetched undefined projects
+2025-01-19T18:58:09.981Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:09.982Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:09.998Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:10.000Z [info]: Fetched undefined projects
+2025-01-19T18:58:10.053Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:10.053Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:10.080Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:10.080Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:24.851Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:24.851Z [info]: Fetched undefined projects
+2025-01-19T18:58:24.856Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:24.856Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:24.882Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:24.889Z [info]: Fetched undefined projects
+2025-01-19T18:58:24.941Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:24.948Z [info]: Fetched undefined projects
+2025-01-19T18:58:24.952Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:24.953Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:24.973Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:24.973Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:24.988Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:24.989Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:53.292Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:53.293Z [info]: Fetched undefined projects
+2025-01-19T18:58:53.295Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:53.295Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:53.327Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:53.335Z [info]: Fetched undefined projects
+2025-01-19T18:58:53.336Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:53.336Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:53.380Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:53.385Z [info]: Fetched undefined projects
+2025-01-19T18:58:53.386Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:53.386Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:53.409Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:53.410Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:57.320Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:57.321Z [info]: Fetched undefined projects
+2025-01-19T18:58:57.323Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:57.323Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:57.332Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:57.338Z [info]: Fetched undefined projects
+2025-01-19T18:58:57.371Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T18:58:57.375Z [info]: Fetched undefined projects
+2025-01-19T18:58:57.399Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:57.400Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:57.406Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:57.406Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T18:58:57.415Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T18:58:57.416Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:04:52.539Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:04:52.540Z [info]: Fetched undefined projects
+2025-01-19T19:04:52.541Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:04:52.541Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:04:52.557Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:04:52.564Z [info]: Fetched undefined projects
+2025-01-19T19:04:52.570Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:04:52.573Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:04:52.589Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:04:52.590Z [info]: Fetched undefined projects
+2025-01-19T19:04:52.607Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:04:52.607Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:04:52.625Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:04:52.628Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:04:57.901Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:04:57.904Z [info]: Fetched undefined projects
+2025-01-19T19:04:57.905Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:04:57.905Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:04:57.929Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:04:57.931Z [info]: Fetched undefined projects
+2025-01-19T19:04:57.932Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:04:57.932Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:04:57.961Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:04:57.963Z [info]: Fetched undefined projects
+2025-01-19T19:04:57.969Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:04:57.969Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:04:57.981Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:04:57.981Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:01.580Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:01.587Z [info]: Fetched undefined projects
+2025-01-19T19:05:01.588Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:01.588Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:01.650Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:01.651Z [info]: Fetched undefined projects
+2025-01-19T19:05:01.697Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:01.698Z [info]: Fetched undefined projects
+2025-01-19T19:05:01.705Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:01.705Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:01.762Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:01.762Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:01.779Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:01.779Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:07.359Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:07.360Z [info]: Fetched undefined projects
+2025-01-19T19:05:07.361Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:07.361Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:07.382Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:07.383Z [info]: Fetched undefined projects
+2025-01-19T19:05:07.384Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:07.384Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:07.404Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:07.409Z [info]: Fetched undefined projects
+2025-01-19T19:05:07.410Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:07.410Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:07.445Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:07.446Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:14.147Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:14.147Z [info]: Fetched undefined projects
+2025-01-19T19:05:14.148Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:14.148Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:14.152Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:14.152Z [info]: Fetched undefined projects
+2025-01-19T19:05:14.164Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:14.164Z [info]: Fetched undefined projects
+2025-01-19T19:05:14.165Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:14.165Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:14.172Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:14.172Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:14.177Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:14.177Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:23.627Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:23.632Z [info]: Fetched undefined projects
+2025-01-19T19:05:23.729Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:23.729Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:23.733Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:23.733Z [info]: Fetched undefined projects
+2025-01-19T19:05:23.774Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:05:23.775Z [info]: Fetched undefined projects
+2025-01-19T19:05:23.776Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:23.776Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:23.795Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:23.796Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:05:23.812Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:05:23.812Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:06:50.991Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:06:50.999Z [info]: Fetched undefined projects
+2025-01-19T19:06:51.003Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:06:51.003Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:06:51.016Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:06:51.017Z [info]: Fetched undefined projects
+2025-01-19T19:06:51.025Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:06:51.026Z [info]: Fetched undefined projects
+2025-01-19T19:06:51.041Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:06:51.041Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:06:51.042Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:06:51.042Z [info]: Fetched undefined projects
+2025-01-19T19:06:51.077Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:06:51.077Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:06:51.100Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:06:51.100Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:13:01.977Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:13:01.980Z [info]: Fetched undefined projects
+2025-01-19T19:13:01.984Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:13:01.985Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:13:02.003Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:13:02.010Z [info]: Fetched undefined projects
+2025-01-19T19:13:02.024Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:13:02.024Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:13:02.036Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:13:02.042Z [info]: Fetched undefined projects
+2025-01-19T19:13:02.064Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:13:02.064Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:13:02.065Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:13:02.074Z [info]: Fetched undefined projects
+2025-01-19T19:13:02.089Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:13:02.089Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:13:09.533Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:13:09.533Z [info]: Fetched undefined projects
+2025-01-19T19:13:09.559Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:13:09.560Z [info]: Fetched undefined projects
+2025-01-19T19:13:09.561Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:13:09.561Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:13:09.579Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:13:09.582Z [info]: Fetched undefined projects
+2025-01-19T19:13:09.583Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:13:09.583Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:13:09.604Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:13:09.613Z [info]: Fetched undefined projects
+2025-01-19T19:13:09.628Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:13:09.629Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:13:09.682Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:13:09.686Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:17:02.524Z [info]: Query successful | Data: {"user_id":10002,"email":"kavi@gmail.com","first_name":"kavi","last_name":"Selvan","password_code":"$2a$10$PDNRdP/VT3nVz/FciwJ7j.hmPD.61nAsVyx9n4CDJOHj8PXNSCcQ2"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-19T19:17:02.743Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:17:02.743Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:17:02.746Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:17:02.746Z [info]: Fetched undefined projects
+2025-01-19T19:17:02.768Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:17:02.773Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:17:02.775Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:17:02.776Z [info]: Fetched undefined projects
+2025-01-19T19:18:05.141Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:18:05.142Z [info]: Fetched undefined projects
+2025-01-19T19:18:05.159Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:18:05.160Z [info]: Fetched undefined projects
+2025-01-19T19:18:05.179Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:18:05.179Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:18:05.183Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:18:05.183Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:18:15.681Z [info]: Query successful | ID: 0 | Query:   
+      UPDATE tasks 
+      SET 
+          content = ?, 
+          description = ?, 
+          due_date = ?, 
+          is_completed = ?, 
+          project_id = ? ,
+          user_id=?
+      WHERE task_id = ?;
+    
+2025-01-19T19:18:15.681Z [info]: Task with ID: 10000037 updated successfully
+2025-01-19T19:20:27.139Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:27.139Z [info]: Fetched undefined projects
+2025-01-19T19:20:27.141Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:27.141Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:32.554Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:32.554Z [info]: Fetched undefined projects
+2025-01-19T19:20:32.556Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:32.557Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:34.305Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:34.306Z [info]: Fetched undefined projects
+2025-01-19T19:20:34.306Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:34.306Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:36.406Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:36.407Z [info]: Fetched undefined projects
+2025-01-19T19:20:36.407Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:36.407Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:41.988Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:41.989Z [info]: Fetched undefined projects
+2025-01-19T19:20:41.992Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:41.993Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:43.422Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:43.422Z [info]: Fetched undefined projects
+2025-01-19T19:20:43.422Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:43.423Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:46.659Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:46.660Z [info]: Fetched undefined projects
+2025-01-19T19:20:46.670Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:46.670Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:49.053Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:49.054Z [info]: Fetched undefined projects
+2025-01-19T19:20:49.054Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:49.054Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:52.303Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:52.304Z [info]: Fetched undefined projects
+2025-01-19T19:20:52.305Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:52.305Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:53.307Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:53.308Z [info]: Fetched undefined projects
+2025-01-19T19:20:53.308Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:53.308Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:20:57.362Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:20:57.362Z [info]: Fetched undefined projects
+2025-01-19T19:20:57.363Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:20:57.363Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-19T19:21:34.658Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-19T19:21:34.659Z [info]: Fetched undefined projects
+2025-01-19T19:21:34.659Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-19T19:21:34.659Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-20T03:37:41.408Z [info]: Query successful | Data: {"user_id":10002,"email":"kavi@gmail.com","first_name":"kavi","last_name":"Selvan","password_code":"$2a$10$PDNRdP/VT3nVz/FciwJ7j.hmPD.61nAsVyx9n4CDJOHj8PXNSCcQ2"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-20T03:38:59.623Z [info]: Query successful | Data: {"user_id":10002,"email":"kavi@gmail.com","first_name":"kavi","last_name":"Selvan","password_code":"$2a$10$PDNRdP/VT3nVz/FciwJ7j.hmPD.61nAsVyx9n4CDJOHj8PXNSCcQ2"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-20T03:39:35.821Z [info]: Server is running on port 8080
+2025-01-20T03:40:16.316Z [info]: Query successful | Data: {"user_id":10002,"email":"kavi@gmail.com","first_name":"kavi","last_name":"Selvan","password_code":"$2a$10$PDNRdP/VT3nVz/FciwJ7j.hmPD.61nAsVyx9n4CDJOHj8PXNSCcQ2"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-20T03:41:27.576Z [info]: Server is running on port 8080
+2025-01-20T03:41:58.732Z [info]: Query successful | Data: {"user_id":10002,"email":"kavi@gmail.com","first_name":"kavi","last_name":"Selvan","password_code":"$2a$10$PDNRdP/VT3nVz/FciwJ7j.hmPD.61nAsVyx9n4CDJOHj8PXNSCcQ2"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-20T03:42:11.111Z [info]: Query successful | Data: {"user_id":10002,"email":"kavi@gmail.com","first_name":"kavi","last_name":"Selvan","password_code":"$2a$10$PDNRdP/VT3nVz/FciwJ7j.hmPD.61nAsVyx9n4CDJOHj8PXNSCcQ2"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-20T03:53:16.886Z [info]: Server is running on port 8080
+2025-01-20T03:53:32.358Z [info]: Query successful | Data: {"user_id":10002,"email":"kavi@gmail.com","first_name":"kavi","last_name":"Selvan","password_code":"$2a$10$PDNRdP/VT3nVz/FciwJ7j.hmPD.61nAsVyx9n4CDJOHj8PXNSCcQ2"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-20T03:53:32.995Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-20T03:53:32.997Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-20T03:53:33.003Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-20T03:53:33.010Z [info]: Fetched undefined projects
+2025-01-20T03:53:33.064Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-20T03:53:33.065Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-20T03:53:33.074Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-20T03:53:33.077Z [info]: Fetched undefined projects
+2025-01-20T04:11:05.555Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-20T04:11:05.556Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-20T04:11:05.561Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-20T04:11:05.563Z [info]: Fetched undefined projects
+2025-01-20T04:11:05.614Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-20T04:11:05.615Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-20T04:11:05.616Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-20T04:11:05.618Z [info]: Fetched undefined projects
+2025-01-20T04:19:34.311Z [info]: Query successful | Data: {"user_id":10002,"email":"kavi@gmail.com","first_name":"kavi","last_name":"Selvan","password_code":"$2a$10$PDNRdP/VT3nVz/FciwJ7j.hmPD.61nAsVyx9n4CDJOHj8PXNSCcQ2"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-20T04:19:34.537Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-20T04:19:34.538Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-20T04:19:34.538Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-20T04:19:34.539Z [info]: Fetched undefined projects
+2025-01-20T04:19:34.554Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-20T04:19:34.555Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-20T04:19:34.556Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-20T04:19:34.556Z [info]: Fetched undefined projects
+2025-01-20T05:14:35.750Z [info]: Server is running on port 8080
+2025-01-20T05:15:30.032Z [info]: Server is running on port 8080
+2025-01-20T05:17:24.179Z [info]: Server is running on port 8080
+2025-01-20T05:18:09.653Z [info]: Query successful | ID: 10003 | Query: INSERT INTO users (first_name,last_name,email,password_code) VALUES (?, ?,?,?)
+2025-01-20T05:18:09.653Z [info]: User created successfully: undefined
+2025-01-20T05:23:08.701Z [info]: Server is running on port 8080
+2025-01-20T05:23:24.087Z [info]: Server is running on port 8080
+2025-01-20T05:25:24.930Z [info]: Server is running on port 8080
+2025-01-20T05:26:37.685Z [info]: Server is running on port 8080
+2025-01-20T05:28:14.966Z [info]: Server is running on port 8080
+2025-01-20T05:30:17.119Z [info]: Server is running on port 8080
+2025-01-20T05:31:07.333Z [info]: Server is running on port 8080
+2025-01-20T05:31:36.624Z [info]: Server is running on port 8080
+2025-01-20T05:34:28.191Z [info]: Server is running on port 8080
+2025-01-20T05:35:47.990Z [info]: Server is running on port 8080
+2025-01-20T05:36:19.319Z [info]: Server is running on port 8080
+2025-01-20T05:37:12.628Z [info]: Query successful | ID: 10004 | Query: INSERT INTO users (first_name,last_name,email,password_code) VALUES (?, ?,?,?)
+2025-01-20T05:37:12.628Z [info]: User created successfully: undefined
+2025-01-20T05:38:07.476Z [error]: Query Execution Error: Error: SQLITE_CONSTRAINT: UNIQUE constraint failed: users.email | Query: INSERT INTO users (first_name,last_name,email,password_code) VALUES (?, ?,?,?)
+2025-01-20T05:38:07.476Z [error]: Error in createUser: Error during execution: Error: SQLITE_CONSTRAINT: UNIQUE constraint failed: users.email
+2025-01-20T05:38:58.934Z [error]: Query Execution Error: Error: SQLITE_CONSTRAINT: UNIQUE constraint failed: users.email | Query: INSERT INTO users (first_name,last_name,email,password_code) VALUES (?, ?,?,?)
+2025-01-20T05:38:58.934Z [error]: Error in createUser: Error during execution: Error: SQLITE_CONSTRAINT: UNIQUE constraint failed: users.email
+2025-01-20T05:39:19.168Z [info]: Query successful | ID: 10005 | Query: INSERT INTO users (first_name,last_name,email,password_code) VALUES (?, ?,?,?)
+2025-01-20T05:39:19.168Z [info]: User created successfully: undefined
+2025-01-20T05:39:41.697Z [info]: Query successful | Data: {"user_id":10005,"email":"abdul@gmail.com","first_name":"Abdul","last_name":"A","password_code":"$2a$10$LneF9p43maM/SM6WhhD6e.BbkVbhhnegGvwJVTe0d.cCGD5.knPgW"} | Query: SELECT * FROM users WHERE email = ?;
+2025-01-20T05:39:41.923Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-20T05:39:41.924Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-20T05:39:41.925Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-20T05:39:41.926Z [info]: Fetched undefined projects
+2025-01-20T05:39:41.945Z [info]: Data fetched successfully | Query: SELECT task_id,content,description,due_date,is_completed
+  created_at,project_id,user_id FROM tasks where user_id=?
+2025-01-20T05:39:41.945Z [info]: Fetched all tasks: Successfully fetched the data
+2025-01-20T05:39:41.946Z [info]: Data fetched successfully | Query: SELECT * FROM projects where user_id=?
+2025-01-20T05:39:41.948Z [info]: Fetched undefined projects

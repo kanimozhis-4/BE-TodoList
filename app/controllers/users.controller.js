@@ -17,7 +17,7 @@ exports.createUser = (req, res) => {
     last_name: req.body.last_name,
     email: req.body.email,
     password_code: req.body.password_code,
-  };
+  }; 
   bcrypt.hash(Data.password_code, 10, (err, hashedPassword) => {
     if (err) {
       return res.status(500).send({ error: "Password hashing error" });
