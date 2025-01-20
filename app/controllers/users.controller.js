@@ -70,9 +70,10 @@ exports.loginUser = (req, res) => {
         );
         res.cookie("token", token, {
           httpOnly: true,
-          secure: false,
+          secure: true,
           sameSite: "Lax",
-          domain: "127.0.0.1",
+          domain: "be-todolist-production.up.railway.app", 
+          // domain: "127.0.0.1",
           path: "/",
           expires: new Date(Date.now() + 30 * 60 * 1000),
         });

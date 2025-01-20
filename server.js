@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 const cors = require("cors");
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173","http://be-todolist-production.up.railway.app"],
     credentials: true,
   })
 );
