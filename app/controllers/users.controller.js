@@ -82,7 +82,7 @@ exports.loginUser = (req, res) => {
 
     .catch((err) => {
       logger.error("Error in login:", err);
-      res.status(500).send({ message: `Internal server error  and error is ${err}`});
+      res.status(500).send({ message: `Internal server error  and error is ${JSON.stringify(err)}`});
     });
 };
 
