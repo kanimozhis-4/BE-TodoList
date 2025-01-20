@@ -71,7 +71,7 @@ exports.loginUser = (req, res) => {
         res.cookie("token", token, {
           httpOnly: true,
           secure: true,
-          sameSite: "Lax",
+          sameSite: "None",
           // domain:"localhost",
           // domain:"127.0.0.1",
           // domain: "be-todolist-production.up.railway.app", 
