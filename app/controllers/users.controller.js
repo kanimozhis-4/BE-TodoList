@@ -72,10 +72,6 @@ exports.loginUser = (req, res) => {
           httpOnly: true,
           secure: true,
           sameSite: "None",
-          // domain:"localhost",
-          // domain:"127.0.0.1",
-          // domain: "be-todolist-production.up.railway.app", 
-          // domain: "127.0.0.1",
           path: "/",
           expires: new Date(Date.now() + 30 * 60 * 1000),
         });
