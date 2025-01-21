@@ -68,29 +68,13 @@ const createTables = () => {
       FOREIGN KEY (project_id) REFERENCES Projects(project_id) ON DELETE CASCADE,
       FOREIGN KEY (task_id) REFERENCES Tasks(task_id) ON DELETE CASCADE
     );`; 
-    const indexQueries = [
-      `CREATE INDEX IF NOT EXISTS idx_users_email ON users (email);`,
-      `CREATE INDEX IF NOT EXISTS idx_users_user_id ON users (user_id);`,
-      `CREATE INDEX IF NOT EXISTS idx_projects_user_id ON projects (user_id);`,
-      `CREATE INDEX IF NOT EXISTS idx_projects_project_id ON projects (project_id);`,
-      `CREATE INDEX IF NOT EXISTS idx_tasks_user_id ON tasks (user_id);`,
-      `CREATE INDEX IF NOT EXISTS idx_tasks_project_id ON tasks (project_id);`,
-      `CREATE INDEX IF NOT EXISTS idx_tasks_task_id ON tasks (task_id);`
-    ]; 
-    indexQueries.forEach((query) => {
-      db.run(query, (err) => {
-        if (err) {
-          console.error('Error creating index:', err.message);
-        } else {
-          console.log('Index created or already exists.');
-        }
-      });
-    });
+   
   db.run(userQuery, (err) => {
     if (err) {
       console.error("Error creating User table:", err.message);
     } else {
       console.log("User table created or already exists.");
+      createIndexes();
     }
   });
 
@@ -116,6 +100,33 @@ const createTables = () => {
     } else {
       console.log("Comments table created or already exists.");
     }
+  });
+}; 
+const createIndexes = () => {
+  const indexQueries = [
+    // Users Table Indexes
+    `CREATE INDEX IF NOT EXISTS idx_users_email ON users (email);`,
+    `CREATE INDEX IF NOT EXISTS idx_users_user_id ON users (user_id);`,
+    
+    // Projects Table Indexes
+    `CREATE INDEX IF NOT EXISTS idx_projects_user_id ON projects (user_id);`,
+    `CREATE INDEX IF NOT EXISTS idx_projects_project_id ON projects (project_id);`,
+    
+    // Tasks Table Indexes
+    `CREATE INDEX IF NOT EXISTS idx_tasks_user_id ON tasks (user_id);`,
+    `CREATE INDEX IF NOT EXISTS idx_tasks_project_id ON tasks (project_id);`,
+    `CREATE INDEX IF NOT EXISTS idx_tasks_task_id ON tasks (task_id);`
+  ];
+
+  // Loop through the index queries and execute each one
+  indexQueries.forEach((query) => {
+    db.run(query, (err) => {
+      if (err) {
+        console.error("Error creating index:", err.message);
+      } else {
+        console.log("Index created or already exists.");
+      }
+    });
   });
 };
 
