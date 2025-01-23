@@ -24,17 +24,17 @@ const validateProject = (req, res, next) => {
 
 // create project
 router.post("/", validateProject, controller.createProject);
-// filter by data
-router.get("/filter", controller.filterByData);
-// get one data by id
+
+// // get one data by id
 router.get("/:id", controller.getById);
-// get all data from both table
+
+// // get all data by user_id
 router.get("/", controller.getAllData);
-// update one data using id
+
+// // update one data using id
 router.put("/:id", validateProject, controller.updateById);
-// delete by id
+
+// // delete by id
 router.delete("/delete/:id", controller.deleteById);
-// delete all Data
-router.delete("/", controller.deleteAllData);
 
 module.exports = router;

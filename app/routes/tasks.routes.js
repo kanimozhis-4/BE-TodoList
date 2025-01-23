@@ -11,7 +11,7 @@ const controller = require(path.join(
 
 const taskSchema = Joi.object({
   content: Joi.string().required(),
-  description: Joi.string().allow("").optional(),
+  description: Joi.string().allow(null).optional(),
   due_date: Joi.date().allow(null).optional(),
   is_completed: Joi.boolean().allow(null).optional(),
   project_id: Joi.number().integer().required(),
@@ -24,19 +24,19 @@ const validateTask = (req, res, next) => {
   }
   next();
 };
-
+// create new task
 router.post("/", validateTask, controller.createTask);
+
 // update one data using id
 router.put("/:id", validateTask, controller.updateById);
-// filter by data
-router.get("/filter", controller.filterByData);
+
 // get one data by id
 router.get("/:id", controller.getById);
-// delte by id
+
+// delete by id
 router.delete("/delete/:id", controller.deleteById);
-// delete all Data
-router.delete("/", controller.deleteAllData);
-// get all data from both table
+
+// // get all task data by user_id
 router.get("/", controller.getAllData);
 
 module.exports = router;

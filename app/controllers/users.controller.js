@@ -1,12 +1,13 @@
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const jsonwebtoken = require("jsonwebtoken");
+const User = require("../models/users.model");
 
 const modelPath = require(path.join(
   __dirname,
   "..",
-  "models",
-  "users.model.js"
+  "services",
+  "users.service.js"
 ));
 const logger = require(path.join(__dirname, "..", "utils", "logger.js"));
 
@@ -32,8 +33,11 @@ exports.createUser = (req, res) => {
     modelPath
       .createUser(newUser)
       .then((data) => {
-        logger.info(`User created successfully: ${data.first_name}`);
-        res.status(201).send(data);
+        res.status(201).send({
+          message: `User created successfully in the Id: ${data.user_id}`,
+          id: data.user_id,
+          data: data,
+        });
       })
       .catch((err) => {
         logger.error(`Error in createUser: ${err.message || err}`);
@@ -43,193 +47,45 @@ exports.createUser = (req, res) => {
       });
   });
 };
-exports.loginUser = (req, res) => {
+exports.loginUser = async (req, res) => {
   const { email, password_code } = req.body;
+
   if (!email || !password_code) {
     return res.status(400).send({ message: "Email and Password are required" });
   }
-  modelPath
-    .getByEmail(email)
-    .then((user) => {
-      if (!user) {
-        return res.status(404).send({ message: "User not found" });
-      }
-      user = user.data;
 
-      bcrypt.compare(password_code, user.password_code, (err, isMatch) => {
-        if (err) {
-          return res.status(500).send({ message: "Error comparing passwords" });
-        }
-        if (!isMatch) {
-          return res.status(400).send({ message: "Invalid credentials" });
-        }
-        const token = jsonwebtoken.sign(
-          { user: user },
-          process.env.SECRET_KEY,
-          { expiresIn: "1h" }
-        );
-        res.cookie("token", token, {
-          httpOnly: true,
-          secure: true,
-          sameSite: "None",
-          path: "/",
-          expires: new Date(Date.now() + 30 * 60 * 1000),
-        });
-        res.status(200).send({ message: `Login successful `, token: token });
-      });
-    })
+  try {
+    const user = await User.findOne({ where: { email } });
 
-    .catch((err) => {
-      logger.error("Error in login:", err);
-      res.status(500).send({ message: `Internal server error  and error is ${JSON.stringify(err)}`});
-    });
-};
-
-exports.getAllData = (req, res) => {
-  modelPath
-    .getAllData()
-    .then((data) => {
-      logger.info("Fetched all users successfully");
-      res.send(data);
-    })
-    .catch((err) => {
-      logger.error(`Error getting all users: ${err}`);
-      res.status(500).send({ message: `Error in getAllData: ${err}` });
-    });
-};
-
-// Update a user by ID
-exports.updateById = (req, res) => {
-  const Data = {
-    name: req.body.name,
-    email: req.body.email,
-    user_id: req.user.id,
-  };
-
-  modelPath
-    .updateById(Data)
-    .then(() => {
-      logger.info(`User with ID: ${Data.user_id} updated successfully`);
-      res.send({ message: `Updated successfully for ID: ${Data.user_id}` });
-    })
-    .catch((err) => {
-      logger.error(
-        `Error updating user with ID: ${Data.user_id} - ${err.message}`
-      );
-      res.status(err.statusCode || 500).send(err);
-    });
-};
-
-// Get a user by ID
-exports.getById = (req, res) => {
-  const Id = parseInt(req.params.id);
-  if (!Id) {
-    logger.warn("User ID is required!");
-    return res.status(400).send({
-      message: "User ID is required!",
-    });
-  }
-
-  modelPath
-    .getById(Id)
-    .then((data) => {
-      logger.info(`Fetched user with ID: ${Id}`);
-      res.send(data);
-    })
-    .catch((err) => {
-      logger.error(`Error getting user with ID: ${Id} - ${err.message}`);
-      res.status(err.statusCode || 500).send(err);
-    });
-};
-
-// Delete a user by ID
-exports.deleteById = (req, res) => {
-  const Id = req.params.id;
-  if (!Id) {
-    logger.warn("User ID is required!");
-    return res.status(400).send({
-      message: "User ID is required!",
-    });
-  }
-
-  modelPath
-    .deleteById(Id)
-    .then(() => {
-      logger.info(`User with ID: ${Id} deleted successfully`);
-      res.send({ message: `Deleted successfully with ID: ${Id}` });
-    })
-    .catch((err) => {
-      logger.error(`Error deleting user with ID: ${Id} - ${err.message}`);
-      res.status(err.statusCode || 500).send(err);
-    });
-};
-
-// Delete all users
-exports.deleteAllData = (req, res) => {
-  modelPath
-    .deleteAllData()
-    .then(() => {
-      logger.info("All users deleted successfully");
-      res.send({ message: "All users deleted successfully!" });
-    })
-    .catch((err) => {
-      logger.error(`Error deleting all users: ${err.message}`);
-      res.status(500).send({
-        message: `Error in deleteAllData: ${err.message || err}`,
-      });
-    });
-};
-
-// Filter tasks based on query parameters
-exports.filterByData = (req, res) => {
-  const queryParams = req.query;
-
-  if (Object.keys(queryParams).length === 0) {
-    logger.warn("No query parameters provided.");
-    return res.status(400).send({ message: "No query parameters provided." });
-  }
-  const { keys, values, error } = validateQueryKeys(queryParams);
-
-  if (error) {
-    logger.warn(`Invalid query parameters: ${error}`);
-    return res.status(400).send({ message: error });
-  }
-
-  modelPath
-    .filterByData(keys, values)
-    .then((data) => {
-      logger.info("Filtered users successfully");
-      res.send(data);
-    })
-    .catch((err) => {
-      logger.error(`Error filtering users by ${keys}: ${err.message}`);
-      res.status(err.statusCode || 500).send({
-        message: `Error filtering data by ${keys}: ${err.message || err}`,
-      });
-    });
-};
-function validateQueryKeys(queryParams) {
-  const allowedKeys = [
-    "project_id",
-    "name",
-    "color",
-    "is_favorite",
-    "created_at",
-  ];
-  const keys = [];
-  const values = [];
-
-  for (const [key, value] of Object.entries(queryParams)) {
-    if (!allowedKeys.includes(key)) {
-      return {
-        error: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(
-          ", "
-        )}`,
-      };
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
     }
-    keys.push(`${key} = ?`);
-    values.push(value);
-  }
 
-  return { keys, values };
-}
+    const isMatch = await bcrypt.compare(password_code, user.password_code);
+
+    if (!isMatch) {
+      return res.status(400).send({ message: "Invalid credentials" });
+    }
+
+    const token = jsonwebtoken.sign(
+      { user: { id: user.user_id, email: user.email } },
+      process.env.SECRET_KEY,
+      { expiresIn: "1h" }
+    );
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      path: "/",
+      expires: new Date(Date.now() + 30 * 60 * 1000),
+    });
+
+    res.status(200).send({ message: "Login successful", token ,email});
+  } catch (err) {
+    logger.error("Error in login:", err);
+    res
+      .status(500)
+      .send({ message: `Internal server error`, error: err.message });
+  }
+};

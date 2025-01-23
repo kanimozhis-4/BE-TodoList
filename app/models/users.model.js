@@ -1,56 +1,51 @@
-const path = require("path");
-const db = require(path.join(__dirname, "..", "models", "db.js"));
+const { Sequelize, DataTypes } = require("sequelize");
+const sequelize = require("../config/sequalize.config");
 
-// Create a new user
-exports.createUser = (Data) => {
-  const query = `INSERT INTO users (first_name,last_name,email,password_code) VALUES (?, ?,?,?)`;
-  const values = Object.values(Data);
-  return db.runQuery(query, values);
-};
+const User = sequelize.define(
+  "User",
+  {
+    user_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password_code: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      defaultValue: Sequelize.NOW,
+      allowNull: false,
+    },
+  },
+  {
+    tableName: "users",
+    timestamps: false,
+    indexes: [
+      {
+        name: "idx_users_email",
+        fields: ["email"],
+      },
+      {
+        name: "idx_users_user_id",
+        fields: ["user_id"],
+      },
+    ],
+  }
+);
 
-exports.getAllData = () => {
-  const query = `SELECT * from users`;
-  return db.runAllQuery(query, []);
-};
-
-// Update a user by ID
-exports.updateById = (Data) => {
-  const query = `
-    UPDATE users 
-    SET 
-        first_name = ?, 
-        last_name = ?,
-        email = ? 
-    WHERE user_id = ?;
-  `;
-  const values = Object.values(Data);
-  return db.runQuery(query, values);
-};
-
-// Get a user by ID
-exports.getById = (Id) => {
-  const query = `SELECT * FROM users WHERE user_id = ?;`;
-  return db.getQuery(query, [Id]);
-};
-//   get user by email
-exports.getByEmail = (email) => {
-  const query = `SELECT * FROM users WHERE email = ?;`;
-  return db.getQuery(query, [email]);
-};
-// Delete a user by ID
-exports.deleteById = (Id) => {
-  const query = `DELETE FROM users WHERE user_id = ?`;
-  return db.runQuery(query, [Id]);
-};
-
-// Delete all users
-exports.deleteAllData = () => {
-  const query = `DELETE FROM users`;
-  return db.runQuery(query, []);
-};
-
-// Filter users by specified key and value
-exports.filterByData = (key, value) => {
-  const query = `SELECT * FROM users WHERE ${key} = ?`;
-  return db.runAllQuery(query, [value]);
-};
+module.exports = User;

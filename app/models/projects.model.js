@@ -1,42 +1,55 @@
-const path = require("path");
-const db = require(path.join(__dirname, "..", "models", "db.js"));
+const { Sequelize, DataTypes } = require("sequelize");
+const sequelize = require("../config/sequalize.config");
 
-exports.createProject = (Data) => {
-  const query = `INSERT INTO projects (name, color, is_favorite,user_id) VALUES (?, ?, ?,?)`;
-  const values = Object.values(Data);
-  return db.runQuery(query, values, Data);
-};
+const Project = sequelize.define(
+  "Project",
+  {
+    project_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    color: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    is_favorite: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "users",
+        key: "user_id",
+      },
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      defaultValue: Sequelize.NOW,
+      allowNull: false,
+      field: "created_at",
+    },
+  },
+  {
+    tableName: "projects",
+    timestamps: false,
+    indexes: [
+      {
+        name: "idx_projects_user_id",
+        fields: ["user_id"],
+      },
+      {
+        name: "idx_projects_project_id",
+        fields: ["project_id"],
+      },
+    ],
+  }
+);
 
-exports.getAllData = (userId) => {
-  const query = `SELECT * FROM projects where user_id=?`;
-  return db.runAllQuery(query, [userId]);
-};
-
-exports.updateById = (Data) => {
-  const query = `
-    UPDATE projects 
-    SET name = ?, color = ?, is_favorite = ? ,user_id=?
-    WHERE project_id = ?;
-  `;
-  const values = Object.values(Data);
-  return db.runQuery(query, values, Data);
-};
-
-exports.getById = (Id) => {
-  const query = `SELECT * FROM projects WHERE project_id = ?`;
-  return db.getQuery(query, [Id]);
-};
-
-exports.deleteById = (Id) => {
-  const query = `DELETE FROM projects WHERE project_id = ?`;
-  return db.runQuery(query, [Id]);
-};
-
-exports.deleteAllData = () => {
-  const query = `DELETE FROM projects`;
-  return db.runQuery(query, []);
-};
-exports.filterByData = (key, value) => {
-  const query = `SELECT * FROM projects WHERE ${key} = ?`;
-  return db.runAllQuery(query, [value]);
-};
+module.exports = Project;

@@ -1,27 +1,31 @@
 const path = require("path");
-const modelPath = require(path.join(
+const servicePath = require(path.join(
   __dirname,
   "..",
-  "models",
-  "tasks.model.js"
+  "services",
+  "tasks.service.js"
 ));
 const logger = require(path.join(__dirname, "..", "utils", "logger.js"));
 // Create a new task
 exports.createTask = (req, res) => {
   const Data = {
     content: req.body.content,
-    description: req.body.description,
-    due_date: req.body.due_date,
+    description: req.body?.description|| null,
+    due_date: req.body?.due_date|| null,
     is_completed: req.body.is_completed || false,
-    user_id: req.user.user_id,
+    user_id: req.user.id,
     project_id: req.body.project_id,
-  };
+  }; 
 
-  modelPath
+  servicePath
     .createTask(Data)
     .then((data) => {
       logger.info("Task created successfully:", data);
-      res.status(201).send(data);
+      res.status(201).send({
+        message: `Task created successfully in the Id: ${data.task_id}`,
+        id: data.task_id,
+        data: data,
+      });
     })
     .catch((err) => {
       logger.error("Error creating task:", err.message || err);
@@ -32,12 +36,15 @@ exports.createTask = (req, res) => {
 };
 
 exports.getAllData = (req, res) => {
-  const userId = req.user.user_id;
-  modelPath
+  const userId = req.user.id; 
+  servicePath
     .getAllData(userId)
     .then((data) => {
       logger.info("Fetched all tasks:", data);
-      res.send(data);
+      res.send({
+        message: `Fetched all tasks`,
+        data: data,
+      });
     })
     .catch((err) => {
       logger.error("Error getting all tasks:", err);
@@ -49,26 +56,29 @@ exports.getAllData = (req, res) => {
 exports.updateById = (req, res) => {
   const Data = {
     content: req.body.content,
-    description: req.body.description,
-    due_date: req.body.due_date,
+    description: req.body.description|| null,
+    due_date: req.body.due_date || null,
     is_completed: req.body.is_completed || false,
     project_id: req.body.project_id,
-    user_id: req.user.user_id,
-    id: parseInt(req.params.id),
-  };
+    user_id: req.user.id,
+  };  
+  const id=req.params.id
 
-  modelPath
-    .updateById(Data)
-    .then(() => {
-      logger.info(`Task with ID: ${Data.id} updated successfully`);
+  servicePath
+    .updateById(Data,id)
+    .then((data) => {
+      logger.info(`Task with ID: ${data.task_id} updated successfully`);
       res.send({
-        message: `updated successfully in the Id: ${Data.id}`,
-        data: { ...Data, task_id: Data.id },
+        message: `updated successfully in the Id: ${data.task_id}`,
+        id:data.task_id,
+        data: data,
       });
     })
     .catch((err) => {
       logger.error(`Error updating task with ID: ${Data.id}`, err);
-      res.status(err.statusCode).send(err);
+      res.status(err.statusCode || 500).send({
+        message: err.message || 'An error occurred while updating the task.',
+      });
     });
 };
 
@@ -82,15 +92,21 @@ exports.getById = (req, res) => {
     });
   }
 
-  modelPath
+  servicePath
     .getById(Id)
     .then((data) => {
       logger.info(`Fetched task with ID: ${Id}`, data);
-      res.send(data);
+      res.send({
+        message: `Fetched task with ID: ${data.task_id}`,
+        id: data.task_id,
+        data: data,
+      });
     })
     .catch((err) => {
       logger.error(`Error getting task with ID: ${Id}`, err);
-      res.status(err.statusCode).send(err);
+      res.status(err.statusCode || 500).send({
+        message: err.message || 'An error occurred while getting the task.',
+      });
     });
 };
 
@@ -104,7 +120,7 @@ exports.deleteById = (req, res) => {
     });
   }
 
-  modelPath
+  servicePath
     .deleteById(Id)
     .then(() => {
       logger.info(`Task with ID: ${Id} deleted successfully`);
@@ -112,80 +128,9 @@ exports.deleteById = (req, res) => {
     })
     .catch((err) => {
       logger.error(`Error deleting task with ID: ${Id}`, err);
-      res.status(err.statusCode).send(err);
-    });
-};
-
-// Delete all tasks
-exports.deleteAllData = (req, res) => {
-  modelPath
-    .deleteAllData()
-    .then(() => {
-      logger.info("All tasks deleted successfully");
-      res.send({ message: "All tasks deleted successfully!" });
-    })
-    .catch((err) => {
-      if (err.statusCode === 404) {
-        logger.warn("No tasks to delete.");
-        res.send({ message: "All tasks deleted successfully!" });
-      } else {
-        logger.error("Error deleting all tasks:", err);
-        res.status(500).send({
-          message: `Error in deleteAllData: ${err.message || err}`,
-        });
-      }
-    });
-};
-
-// Filter tasks based on query parameters
-exports.filterByData = (req, res) => {
-  const queryParams = req.query;
-
-  if (Object.keys(queryParams).length === 0) {
-    return res.status(400).send({ message: "No query parameters provided." });
-  }
-  const { keys, values, error } = validateQueryKeys(queryParams);
-
-  if (error) {
-    return res.status(400).send({ message: error });
-  }
-
-  modelPath
-    .filterByData(keys, values)
-    .then((data) => {
-      logger.info("Filtered tasks:", data);
-      res.send(data);
-    })
-    .catch((err) => {
-      logger.error(`Error filtering tasks by ${keys}:`, err);
       res.status(err.statusCode || 500).send({
-        message: `Error filtering data by ${keys}: ${err.message || err}`,
+        message: err.message || 'An error occurred while deleting the task.',
       });
     });
 };
-function validateQueryKeys(queryParams) {
-  const allowedKeys = [
-    "project_id",
-    "content",
-    "task_id",
-    "due_date",
-    "is_completed",
-    "created_at",
-  ];
-  const keys = [];
-  const values = [];
 
-  for (const [key, value] of Object.entries(queryParams)) {
-    if (!allowedKeys.includes(key)) {
-      return {
-        error: `Invalid key: ${key}. Allowed keys are: ${allowedKeys.join(
-          ", "
-        )}`,
-      };
-    }
-    keys.push(`${key} = ?`);
-    values.push(value);
-  }
-
-  return { keys, values };
-}

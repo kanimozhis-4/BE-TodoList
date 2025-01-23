@@ -1,53 +1,65 @@
-const path = require("path");
-const db = require(path.join(__dirname, "..", "models", "db.js"));
+const { Sequelize, DataTypes } = require("sequelize");
+const sequelize = require("../config/sequalize.config");
 
-exports.createTask = (Data) => {
-  const query = `INSERT INTO tasks (content, description, due_date, is_completed, user_id,project_id) 
-                 VALUES (?, ?, ?, ?, ?,?) RETURNING *`;
-  const values = Object.values(Data);
+const Task = sequelize.define(
+  "Task",
+  {
+    task_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    content: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+    },
+    due_date: {
+      type: DataTypes.DATE,
+    },
+    is_completed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      defaultValue: Sequelize.NOW,
+      allowNull: false,
+      field: "created_at",
+    },
+    project_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "projects",
+        key: "project_id",
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "users",
+        key: "user_id",
+      },
+    },
+  },
+  {
+    tableName: "tasks",
+    timestamps: false,
+    indexes: [
+      {
+        name: "tasks_user_id_idx", 
+        fields: ["user_id"],
+      },
+      {
+        name: "tasks_project_id_idx", 
+        fields: ["project_id"],
+      },
+    ],
+  }
+);
 
-  return db.runQuery(query, values, Data);
-};
-
-exports.getAllData = (userId) => {
-  const query = `SELECT task_id,content,description,due_date,is_completed
-  created_at,project_id,user_id FROM tasks where user_id=?`;
-  return db.runAllQuery(query, [userId]);
-};
-
-exports.updateById = (Data) => {
-  const query = `  
-      UPDATE tasks 
-      SET 
-          content = ?, 
-          description = ?, 
-          due_date = ?, 
-          is_completed = ?, 
-          project_id = ? ,
-          user_id=?
-      WHERE task_id = ?;
-    `;
-  const values = Object.values(Data);
-
-  return db.runQuery(query, values, Data);
-};
-
-exports.getById = (Id) => {
-  const query = `SELECT * FROM tasks WHERE id = ?;`;
-  return db.getQuery(query, [Id]);
-};
-
-exports.deleteById = (Id) => {
-  const query = `DELETE FROM tasks WHERE task_id = ?`;
-  return db.runQuery(query, [Id]);
-};
-
-exports.deleteAllData = () => {
-  const query = `Delete from tasks`;
-  return db.runQuery(query, []);
-};
-
-exports.filterByData = (key, value) => {
-  const query = `SELECT * FROM tasks WHERE ${key} = ?`;
-  return db.runAllQuery(query, [value]);
-};
+module.exports = Task;
